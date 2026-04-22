@@ -25,7 +25,7 @@ O sistema permite o gerenciamento de conteúdos de bem-estar como meditação, r
 ### Ferramentas:
 - VS Code
 - Insomnia
-- MySQL Workbench
+- MySQL
 
 ---
 
