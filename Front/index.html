@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Loja Retrô Games</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 Loja Retrô Games</h1>
+    <button onclick="cadastro.classList.remove('oculto')">+ Produto</button>
+</header>
+
+<main></main>
+
+<div id="cadastro" class="modal oculto">
+    <div class="janela">
+        <h2>Novo Produto</h2>
+        <form id="formCad">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="imagem" placeholder="URL da imagem">
+            <input type="number" id="preco" placeholder="Preço" required>
+            <input type="text" id="categoria" placeholder="Categoria">
+            <input type="text" id="marca" placeholder="Marca">
+
+            <button type="reset" onclick="cadastro.classList.add('oculto')">Cancelar</button>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<div id="detalhes" class="modal oculto">
+    <div class="janela">
+        <h2 id="titulo"></h2>
+        <img id="imgProduto">
+
+        <input type="text" id="nomeEdit">
+        <input type="text" id="imgEdit">
+        <input type="number" id="precoEdit">
+        <input type="text" id="categoriaEdit">
+        <input type="text" id="marcaEdit">
+
+        <button onclick="salvarEdicao()">Salvar</button>
+        <button onclick="excluirProduto()">Excluir</button>
+        <button onclick="detalhes.classList.add('oculto')">Fechar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
