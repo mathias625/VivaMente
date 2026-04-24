@@ -11,11 +11,7 @@ O sistema permite o gerenciamento de conteúdos de bem-estar como meditação, r
 
 ### Backend:
 - Node.js
-- Express
 - MySQL
-- dotenv
-- cors
-- mysql2
 
 ### Frontend:
 - HTML
