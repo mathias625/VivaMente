@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  background-color: #f5f7f9;
+  color: #333;
+  line-height: 1.6;
+}
+.logo{
+    font-size: 28px;
+    font-weight: 800;
+}
+nav {
+  background: #20b2aa;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav h1{
+  font-size: 100px;
+  font-weight: bold;
+}
+nav ul{
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+nav ul li a{
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: #f5f7f9;
+}
+nav ul li a:hover{
+  opacity: 0.7;
+}
+.txt-center{
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+.txt-center h2{
+  font-size: 32px;
+  color: #20b2aa;
+  font-weight: 500;
+  max-width: 800px;
+  margin: auto;
+}
+.cards{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+.card{
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  flex-direction: column;
+  transition: 0.3s ease;
+}
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+.card h2{
+  color: #20b2aa;
+  margin-bottom: 15px;
+}
+.card p{
+  font-size: 15px;
+  color: #555;
+}
+.card ul li{
+  margin: 5px;
+  font-weight: 600;
+}
+button{
+  background-color: #20b2aa;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover{
+  background: #198b86;
+  transform: scale(1.05);
+}
+.btn{
+  text-align: center;
+  margin: 40px 0;
+}
+.btn a{
+  text-decoration: none;
+}
+.btn button{
+  background: #20b2aa;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn button:hover{
+  background: #198b86;
+  transform: scale(1.05);
+}
+.info{
+    margin: 10px;
+    padding: 10px;
+}
+.info h2{
+    color: #20b2aa;
+    font-size: 38px;
+    font-weight: 500;
+}
+.info p{
+    font-size: 28px;
+    color: #555;
+}
+footer{
+  text-align: center;
+  padding: 20px;
+  background: #eaeaea;
+  font-size: 14px;
+  color: #666;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+form{
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+textarea{
+    width: 100%;
+    min-height: 80px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: inherit;
+    resize: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .txt-center h2 {
+    font-size: 24px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
