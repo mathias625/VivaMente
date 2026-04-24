@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ==================== ENTIDADE: Usuario ==================== -->
+    <mxCell id="100" value="Usuario" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="700" y="340" width="130" height="50" as="geometry" />
+    </mxCell>
+    <!-- PK -->
+    <mxCell id="101" value="id_usuario (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="550" y="270" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e101" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="101" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="102" value="nome" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="550" y="320" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e102" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="102" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="103" value="email" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="550" y="370" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e103" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="103" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="104" value="senha" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="550" y="420" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e104" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="104" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="105" value="tipo_usuario" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="700" y="270" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e105" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="105" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="106" value="data_cadastro" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="860" y="270" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e106" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="106" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="107" value="ativo" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="860" y="320" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e107" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="107" target="100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Estudante ==================== -->
+    <mxCell id="200" value="Estudante" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="200" y="340" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="201" value="id_estudante (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="30" y="260" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e201" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="201" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="202" value="RM (único)" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="30" y="310" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e202" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="202" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="203" value="nome" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="30" y="360" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e203" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="203" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="204" value="data_nascimento" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="30" y="410" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e204" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="204" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="205" value="email_educacional" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="200" y="260" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e205" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="205" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="206" value="id_usuario (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="200" y="420" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e206" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="206" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Responsavel ==================== -->
+    <mxCell id="300" value="Responsavel" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="200" y="620" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="301" value="id_responsavel (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="30" y="590" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e301" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="301" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="302" value="nome" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="30" y="640" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e302" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="302" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="303" value="email" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="30" y="690" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e303" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="303" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="304" value="telefone" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="200" y="700" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e304" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="304" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="305" value="id_usuario (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="340" y="620" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e305" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="305" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Profissional ==================== -->
+    <mxCell id="400" value="Profissional" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="340" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="401" value="id_profissional (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1270" y="270" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e401" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="401" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="402" value="nome" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1270" y="320" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e402" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="402" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="403" value="especialidade" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1270" y="370" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e403" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="403" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="404" value="cargo" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1270" y="420" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e404" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="404" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="405" value="id_usuario (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="270" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e405" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="405" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Sessao ==================== -->
+    <mxCell id="500" value="Sessao" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="700" y="620" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="501" value="id_sessao (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="560" y="560" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e501" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="501" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="502" value="data_sessao" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="560" y="610" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e502" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="502" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="503" value="horario" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="560" y="660" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e503" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="503" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="504" value="motivo" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="700" y="700" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e504" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="504" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="505" value="status" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="840" y="560" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e505" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="505" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="506" value="id_estudante (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="840" y="610" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e506" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="506" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="507" value="id_profissional (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="840" y="660" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e507" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="507" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: RegistroAcompanhamento ==================== -->
+    <mxCell id="600" value="RegistroAcompanhamento" style="shape=mxgraph.erd.entity;fontSize=12;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="680" y="870" width="170" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="601" value="id_registro (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="500" y="820" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e601" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="601" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="602" value="observacoes" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="500" y="870" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e602" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="602" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="603" value="encaminhamento" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="500" y="920" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e603" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="603" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="604" value="data_registro" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="680" y="950" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e604" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="604" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="605" value="id_sessao (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="860" y="820" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e605" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="605" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="606" value="id_profissional (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="860" y="870" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e606" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="606" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: HistoricoSaudeMental ==================== -->
+    <mxCell id="700" value="HistoricoSaudeMental" style="shape=mxgraph.erd.entity;fontSize=12;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="200" y="870" width="160" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="701" value="id_historico (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="20" y="820" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e701" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="701" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="702" value="descricao" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="20" y="870" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e702" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="702" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="703" value="data_atualizacao" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="20" y="920" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e703" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="703" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="704" value="id_estudante (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="200" y="950" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e704" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="704" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="705" value="id_registro (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="370" y="870" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e705" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="705" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Agendamento ==================== -->
+    <mxCell id="800" value="Agendamento" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="620" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="801" value="id_agendamento (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="560" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e801" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="801" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="802" value="data_agendamento" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="610" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e802" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="802" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="803" value="horario" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="660" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e803" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="803" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="804" value="status" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="700" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e804" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="804" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="805" value="id_estudante (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="960" y="560" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e805" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="805" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="806" value="id_profissional (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="960" y="610" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e806" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="806" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: Notificacao ==================== -->
+    <mxCell id="900" value="Notificacao" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="870" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="901" value="id_notificacao (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="820" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e901" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="901" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="902" value="mensagem" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="870" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e902" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="902" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="903" value="data_envio" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1280" y="920" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e903" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="903" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="904" value="lida" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="950" width="80" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e904" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="904" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="905" value="id_usuario (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="960" y="820" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e905" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="905" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: LogAcesso ==================== -->
+    <mxCell id="1000" value="LogAcesso" style="shape=mxgraph.erd.entity;fontSize=13;fontStyle=1;fillColor=#FFE6CC;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="700" y="130" width="130" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="1001" value="id_log (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="560" y="80" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1001" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1001" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1002" value="data_hora_acesso" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="700" y="60" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1002" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1002" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1003" value="acao" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="860" y="80" width="90" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1003" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1003" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1004" value="resultado_acesso" style="shape=mxgraph.erd.attribute;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="860" y="130" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1004" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1004" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1005" value="id_usuario (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="560" y="130" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1005" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1005" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== ENTIDADE: EstudanteResponsavel (tabela associativa) ==================== -->
+    <mxCell id="1100" value="EstudanteResponsavel" style="shape=mxgraph.erd.entity;fontSize=12;fontStyle=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="200" y="490" width="160" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="1101" value="id (PK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="60" y="490" width="90" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1101" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1101" target="1100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1102" value="id_estudante (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="390" y="490" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1102" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1102" target="1100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <mxCell id="1103" value="id_responsavel (FK)" style="shape=mxgraph.erd.attribute;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="200" y="560" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e1103" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="1103" target="1100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- ==================== RELACIONAMENTOS (losangos) ==================== -->
+
+    <!-- Possui (Usuario -> Estudante) -->
+    <mxCell id="r1" value="Possui" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="480" y="352" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er1a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="100" target="r1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er1b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r1" target="200" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Possui (Usuario -> Responsavel) -->
+    <mxCell id="r2" value="Possui" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="480" y="632" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er2a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="100" target="r2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er2b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r2" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Possui (Usuario -> Profissional) -->
+    <mxCell id="r3" value="Possui" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="940" y="352" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er3a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="100" target="r3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er3b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r3" target="400" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Realiza (Estudante -> Sessao) -->
+    <mxCell id="r4" value="Realiza" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="430" y="632" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er4a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="200" target="r4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er4b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r4" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Conduz (Profissional -> Sessao) -->
+    <mxCell id="r5" value="Conduz" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="970" y="632" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er5a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="400" target="r5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er5b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r5" target="500" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Gera (Sessao -> RegistroAcompanhamento) -->
+    <mxCell id="r6" value="Gera" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="720" y="780" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er6a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="500" target="r6" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er6b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r6" target="600" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Compoe (RegistroAcompanhamento -> HistoricoSaudeMental) -->
+    <mxCell id="r7" value="Compoe" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="450" y="882" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er7a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="600" target="r7" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er7b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r7" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Agenda (Estudante -> Agendamento) -->
+    <mxCell id="r8" value="Agenda" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="970" y="490" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er8b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r8" target="800" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Recebe (Usuario -> Notificacao) -->
+    <mxCell id="r9" value="Recebe" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="940" y="882" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er9a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="100" target="r9" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er9b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r9" target="900" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Registra (Usuario -> LogAcesso) -->
+    <mxCell id="r10" value="Registra" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="940" y="142" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er10a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="100" target="r10" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er10b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r10" target="1000" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Possui (Estudante -> HistoricoSaudeMental) -->
+    <mxCell id="r11" value="Possui" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="780" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er11a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="200" target="r11" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er11b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r11" target="700" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+    <!-- Vincula (EstudanteResponsavel) -->
+    <mxCell id="r12" value="Vincula" style="shape=mxgraph.erd.relationship;fontSize=12;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="430" width="100" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="er12a" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;" edge="1" source="200" target="r12" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er12b" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="r12" target="1100" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+    <mxCell id="er12c" style="edgeStyle=orthogonalEdgeStyle;endArrow=ERmandOne;startArrow=ERzeroToMany;" edge="1" source="1100" target="300" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+  </root>
+</mxGraphModel>
