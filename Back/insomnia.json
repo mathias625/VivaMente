@@ -1,0 +1,439 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-08-07T12:38:42.104Z",
+  "__export_source": "backend-aula",
+  "resources": [
+    {
+      "_id": "wrk_backend",
+      "_type": "workspace",
+      "name": "Backend Aula"
+    },
+    {
+      "_id": "fld_Back",
+      "_type": "request_group",
+      "parentId": "wrk_backend",
+      "name": "Back"
+    },
+    {
+      "_id": "fld_Psicologo",
+      "_type": "request_group",
+      "parentId": "fld_Back",
+      "name": "Psicologo"
+    },
+    {
+      "_id": "req_Psicologo_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Psicologo",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/psicologo/listar"
+    },
+    {
+      "_id": "req_Psicologo_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Psicologo",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/psicologo/buscar/:id"
+    },
+    {
+      "_id": "req_Psicologo_POST",
+      "_type": "request",
+      "parentId": "fld_Psicologo",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/psicologo/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_Psicologo_PUT",
+      "_type": "request",
+      "parentId": "fld_Psicologo",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/psicologo/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\"\n}"
+      }
+    },
+    {
+      "_id": "req_Psicologo_DELETE",
+      "_type": "request",
+      "parentId": "fld_Psicologo",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/psicologo/excluir/:id"
+    },
+    {
+      "_id": "fld_Paciente",
+      "_type": "request_group",
+      "parentId": "fld_Back",
+      "name": "Paciente"
+    },
+    {
+      "_id": "req_Paciente_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Paciente",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/paciente/listar"
+    },
+    {
+      "_id": "req_Paciente_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Paciente",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/paciente/buscar/:id"
+    },
+    {
+      "_id": "req_Paciente_POST",
+      "_type": "request",
+      "parentId": "fld_Paciente",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/paciente/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\",\n  \"psicologoId\": 0,\n  \"pontos\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Paciente_PUT",
+      "_type": "request",
+      "parentId": "fld_Paciente",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/paciente/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"email\": \"string\",\n  \"senha\": \"string\",\n  \"psicologoId\": 0,\n  \"pontos\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Paciente_DELETE",
+      "_type": "request",
+      "parentId": "fld_Paciente",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/paciente/excluir/:id"
+    },
+    {
+      "_id": "fld_Consulta",
+      "_type": "request_group",
+      "parentId": "fld_Back",
+      "name": "Consulta"
+    },
+    {
+      "_id": "req_Consulta_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Consulta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/consulta/listar"
+    },
+    {
+      "_id": "req_Consulta_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Consulta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/consulta/buscar/:id"
+    },
+    {
+      "_id": "req_Consulta_POST",
+      "_type": "request",
+      "parentId": "fld_Consulta",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/consulta/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"data\": \"2026-08-07T12:38:42.103Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Consulta_PUT",
+      "_type": "request",
+      "parentId": "fld_Consulta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/consulta/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"data\": \"2026-08-07T12:38:42.103Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Consulta_DELETE",
+      "_type": "request",
+      "parentId": "fld_Consulta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/consulta/excluir/:id"
+    },
+    {
+      "_id": "fld_Recompensas",
+      "_type": "request_group",
+      "parentId": "fld_Back",
+      "name": "Recompensas"
+    },
+    {
+      "_id": "req_Recompensas_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Recompensas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/recompensas/listar"
+    },
+    {
+      "_id": "req_Recompensas_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Recompensas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/recompensas/buscar/:id"
+    },
+    {
+      "_id": "req_Recompensas_POST",
+      "_type": "request",
+      "parentId": "fld_Recompensas",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/recompensas/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Recompensas_PUT",
+      "_type": "request",
+      "parentId": "fld_Recompensas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/recompensas/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Recompensas_DELETE",
+      "_type": "request",
+      "parentId": "fld_Recompensas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/recompensas/excluir/:id"
+    },
+    {
+      "_id": "fld_Tarefas",
+      "_type": "request_group",
+      "parentId": "fld_Back",
+      "name": "Tarefas"
+    },
+    {
+      "_id": "req_Tarefas_GET_ALL",
+      "_type": "request",
+      "parentId": "fld_Tarefas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Listar",
+      "method": "GET",
+      "url": "http://localhost:3000/tarefas/listar"
+    },
+    {
+      "_id": "req_Tarefas_GET_ID",
+      "_type": "request",
+      "parentId": "fld_Tarefas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Buscar",
+      "method": "GET",
+      "url": "http://localhost:3000/tarefas/buscar/:id"
+    },
+    {
+      "_id": "req_Tarefas_POST",
+      "_type": "request",
+      "parentId": "fld_Tarefas",
+      "name": "Cadastrar",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://localhost:3000/tarefas/cadastrar",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"status\": \"string\",\n  \"pontos\": 0,\n  \"pacienteId\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Tarefas_PUT",
+      "_type": "request",
+      "parentId": "fld_Tarefas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Atualizar",
+      "method": "PUT",
+      "url": "http://localhost:3000/tarefas/atualizar/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"status\": \"string\",\n  \"pontos\": 0,\n  \"pacienteId\": 0\n}"
+      }
+    },
+    {
+      "_id": "req_Tarefas_DELETE",
+      "_type": "request",
+      "parentId": "fld_Tarefas",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "name": "Excluir",
+      "method": "DELETE",
+      "url": "http://localhost:3000/tarefas/excluir/:id"
+    }
+  ]
+}

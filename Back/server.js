@@ -1,37 +1,38 @@
-require("dotenv").config();
-
-const express = require("express");
-
+require('dotenv').config();
+const express = require('express');
 const cors = require("cors");
 
 const app = express();
-
 app.use(express.json());
-
 app.use(cors());
 
-const conteudoRoutes =
-require("./src/routes/conteudo.routes");
+const tarefasRoutes = require('./src/routes/tarefas.routes');
 
-const checkinRoutes =
-require("./src/routes/checkin.routes");
+app.use('/tarefas', tarefasRoutes);
 
-const ajudaRoutes =
-require("./src/routes/ajuda.routes");
 
-const dicasRoutes =
-require("./src/routes/dicas.routes");
+const recompensasRoutes = require('./src/routes/recompensas.routes');
 
-app.use("/conteudo", conteudoRoutes);
+app.use('/recompensas', recompensasRoutes);
 
-app.use("/checkin", checkinRoutes);
 
-app.use("/ajuda", ajudaRoutes);
+const consultaRoutes = require('./src/routes/consulta.routes');
 
-app.use("/dicas", dicasRoutes);
+app.use('/consulta', consultaRoutes);
 
-app.listen(3000, () => {
 
-    console.log("rodando na porta 3000");
+const psicologoRoutes = require('./src/routes/psicologo.routes');
 
+app.use('/psicologo', psicologoRoutes);
+
+
+const pacienteRoutes = require('./src/routes/paciente.routes');
+
+app.use('/paciente', pacienteRoutes);
+
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
