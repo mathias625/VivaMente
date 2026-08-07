@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Psicologo {
+  id        Int        @id @default(autoincrement())
+  nome      String
+  email     String     @unique
+  senha     String
+  Consultas Consulta[]
+  Pacientes Paciente[]
+}
+
+model Paciente {
+  id          Int        @id @default(autoincrement())
+  nome        String
+  email       String     @unique
+  senha       String
+  psicologoId Int
+  pontos      Int
+  psicologo   Psicologo  @relation(fields: [psicologoId], references: [id])
+  Consultas   Consulta[]
+  Tarefas     Tarefas[]
+}
+
+model Consulta {
+  id          Int       @id @default(autoincrement())
+  data        DateTime
+  psicologoId Int
+  pacienteId  Int
+  psicologo   Psicologo @relation(fields: [psicologoId], references: [id])
+  paciente    Paciente  @relation(fields: [pacienteId], references: [id])
+}
+
+model Recompensas {
+  id        Int    @id @default(autoincrement())
+  nome      String
+  descricao String
+  preco     Int
+}
+
+model Tarefas {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  descricao  String
+  status     String
+  pontos     Int
+  pacienteId Int
+  paciente   Paciente @relation(fields: [pacienteId], references: [id])
+}
