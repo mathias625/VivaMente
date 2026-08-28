@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2026-08-07T12:38:42.104Z",
+  "__export_date": "2026-08-28T12:02:18.725Z",
   "__export_source": "backend-aula",
   "resources": [
     {
@@ -10,15 +10,15 @@
       "name": "Backend Aula"
     },
     {
-      "_id": "fld_Back",
+      "_id": "fld_NovoBack",
       "_type": "request_group",
       "parentId": "wrk_backend",
-      "name": "Back"
+      "name": "NovoBack"
     },
     {
       "_id": "fld_Psicologo",
       "_type": "request_group",
-      "parentId": "fld_Back",
+      "parentId": "fld_NovoBack",
       "name": "Psicologo"
     },
     {
@@ -102,7 +102,7 @@
     {
       "_id": "fld_Paciente",
       "_type": "request_group",
-      "parentId": "fld_Back",
+      "parentId": "fld_NovoBack",
       "name": "Paciente"
     },
     {
@@ -186,7 +186,7 @@
     {
       "_id": "fld_Consulta",
       "_type": "request_group",
-      "parentId": "fld_Back",
+      "parentId": "fld_NovoBack",
       "name": "Consulta"
     },
     {
@@ -232,7 +232,7 @@
       "url": "http://localhost:3000/consulta/cadastrar",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"data\": \"2026-08-07T12:38:42.103Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
+        "text": "{\n  \"data\": \"2026-08-28T12:02:18.724Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
       }
     },
     {
@@ -250,7 +250,7 @@
       "url": "http://localhost:3000/consulta/atualizar/:id",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"data\": \"2026-08-07T12:38:42.103Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
+        "text": "{\n  \"data\": \"2026-08-28T12:02:18.724Z\",\n  \"psicologoId\": 0,\n  \"pacienteId\": 0\n}"
       }
     },
     {
@@ -268,15 +268,15 @@
       "url": "http://localhost:3000/consulta/excluir/:id"
     },
     {
-      "_id": "fld_Recompensas",
+      "_id": "fld_Recompensa",
       "_type": "request_group",
-      "parentId": "fld_Back",
-      "name": "Recompensas"
+      "parentId": "fld_NovoBack",
+      "name": "Recompensa"
     },
     {
-      "_id": "req_Recompensas_GET_ALL",
+      "_id": "req_Recompensa_GET_ALL",
       "_type": "request",
-      "parentId": "fld_Recompensas",
+      "parentId": "fld_Recompensa",
       "headers": [
         {
           "name": "Content-Type",
@@ -285,12 +285,12 @@
       ],
       "name": "Listar",
       "method": "GET",
-      "url": "http://localhost:3000/recompensas/listar"
+      "url": "http://localhost:3000/recompensa/listar"
     },
     {
-      "_id": "req_Recompensas_GET_ID",
+      "_id": "req_Recompensa_GET_ID",
       "_type": "request",
-      "parentId": "fld_Recompensas",
+      "parentId": "fld_Recompensa",
       "headers": [
         {
           "name": "Content-Type",
@@ -299,12 +299,12 @@
       ],
       "name": "Buscar",
       "method": "GET",
-      "url": "http://localhost:3000/recompensas/buscar/:id"
+      "url": "http://localhost:3000/recompensa/buscar/:id"
     },
     {
-      "_id": "req_Recompensas_POST",
+      "_id": "req_Recompensa_POST",
       "_type": "request",
-      "parentId": "fld_Recompensas",
+      "parentId": "fld_Recompensa",
       "name": "Cadastrar",
       "headers": [
         {
@@ -313,16 +313,16 @@
         }
       ],
       "method": "POST",
-      "url": "http://localhost:3000/recompensas/cadastrar",
+      "url": "http://localhost:3000/recompensa/cadastrar",
       "body": {
         "mimeType": "application/json",
         "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 0\n}"
       }
     },
     {
-      "_id": "req_Recompensas_PUT",
+      "_id": "req_Recompensa_PUT",
       "_type": "request",
-      "parentId": "fld_Recompensas",
+      "parentId": "fld_Recompensa",
       "headers": [
         {
           "name": "Content-Type",
@@ -331,16 +331,16 @@
       ],
       "name": "Atualizar",
       "method": "PUT",
-      "url": "http://localhost:3000/recompensas/atualizar/:id",
+      "url": "http://localhost:3000/recompensa/atualizar/:id",
       "body": {
         "mimeType": "application/json",
         "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"preco\": 0\n}"
       }
     },
     {
-      "_id": "req_Recompensas_DELETE",
+      "_id": "req_Recompensa_DELETE",
       "_type": "request",
-      "parentId": "fld_Recompensas",
+      "parentId": "fld_Recompensa",
       "headers": [
         {
           "name": "Content-Type",
@@ -349,18 +349,18 @@
       ],
       "name": "Excluir",
       "method": "DELETE",
-      "url": "http://localhost:3000/recompensas/excluir/:id"
+      "url": "http://localhost:3000/recompensa/excluir/:id"
     },
     {
-      "_id": "fld_Tarefas",
+      "_id": "fld_Tarefa",
       "_type": "request_group",
-      "parentId": "fld_Back",
-      "name": "Tarefas"
+      "parentId": "fld_NovoBack",
+      "name": "Tarefa"
     },
     {
-      "_id": "req_Tarefas_GET_ALL",
+      "_id": "req_Tarefa_GET_ALL",
       "_type": "request",
-      "parentId": "fld_Tarefas",
+      "parentId": "fld_Tarefa",
       "headers": [
         {
           "name": "Content-Type",
@@ -369,12 +369,12 @@
       ],
       "name": "Listar",
       "method": "GET",
-      "url": "http://localhost:3000/tarefas/listar"
+      "url": "http://localhost:3000/tarefa/listar"
     },
     {
-      "_id": "req_Tarefas_GET_ID",
+      "_id": "req_Tarefa_GET_ID",
       "_type": "request",
-      "parentId": "fld_Tarefas",
+      "parentId": "fld_Tarefa",
       "headers": [
         {
           "name": "Content-Type",
@@ -383,12 +383,12 @@
       ],
       "name": "Buscar",
       "method": "GET",
-      "url": "http://localhost:3000/tarefas/buscar/:id"
+      "url": "http://localhost:3000/tarefa/buscar/:id"
     },
     {
-      "_id": "req_Tarefas_POST",
+      "_id": "req_Tarefa_POST",
       "_type": "request",
-      "parentId": "fld_Tarefas",
+      "parentId": "fld_Tarefa",
       "name": "Cadastrar",
       "headers": [
         {
@@ -397,16 +397,16 @@
         }
       ],
       "method": "POST",
-      "url": "http://localhost:3000/tarefas/cadastrar",
+      "url": "http://localhost:3000/tarefa/cadastrar",
       "body": {
         "mimeType": "application/json",
         "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"status\": \"string\",\n  \"pontos\": 0,\n  \"pacienteId\": 0\n}"
       }
     },
     {
-      "_id": "req_Tarefas_PUT",
+      "_id": "req_Tarefa_PUT",
       "_type": "request",
-      "parentId": "fld_Tarefas",
+      "parentId": "fld_Tarefa",
       "headers": [
         {
           "name": "Content-Type",
@@ -415,16 +415,16 @@
       ],
       "name": "Atualizar",
       "method": "PUT",
-      "url": "http://localhost:3000/tarefas/atualizar/:id",
+      "url": "http://localhost:3000/tarefa/atualizar/:id",
       "body": {
         "mimeType": "application/json",
         "text": "{\n  \"nome\": \"string\",\n  \"descricao\": \"string\",\n  \"status\": \"string\",\n  \"pontos\": 0,\n  \"pacienteId\": 0\n}"
       }
     },
     {
-      "_id": "req_Tarefas_DELETE",
+      "_id": "req_Tarefa_DELETE",
       "_type": "request",
-      "parentId": "fld_Tarefas",
+      "parentId": "fld_Tarefa",
       "headers": [
         {
           "name": "Content-Type",
@@ -433,7 +433,7 @@
       ],
       "name": "Excluir",
       "method": "DELETE",
-      "url": "http://localhost:3000/tarefas/excluir/:id"
+      "url": "http://localhost:3000/tarefa/excluir/:id"
     }
   ]
 }

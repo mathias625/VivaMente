@@ -1,54 +1,58 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+    provider = "mysql"
 }
 
 model Psicologo {
-  id        Int        @id @default(autoincrement())
-  nome      String
-  email     String     @unique
-  senha     String
-  Consultas Consulta[]
-  Pacientes Paciente[]
+    id        Int    @id @default(autoincrement())
+    nome      String
+    email     String @unique
+    senha     String
+
+    consultas Consulta[]
+    pacientes Paciente[]
 }
 
 model Paciente {
-  id          Int        @id @default(autoincrement())
-  nome        String
-  email       String     @unique
-  senha       String
-  psicologoId Int
-  pontos      Int
-  psicologo   Psicologo  @relation(fields: [psicologoId], references: [id])
-  Consultas   Consulta[]
-  Tarefas     Tarefas[]
+    id          Int    @id @default(autoincrement())
+    nome        String
+    email       String @unique
+    senha       String
+    psicologoId Int
+    pontos      Int    @default(0)
+
+    psicologo Psicologo @relation(fields: [psicologoId], references: [id])
+    consultas Consulta[]
+    tarefas   Tarefa[]
 }
 
 model Consulta {
-  id          Int       @id @default(autoincrement())
-  data        DateTime
-  psicologoId Int
-  pacienteId  Int
-  psicologo   Psicologo @relation(fields: [psicologoId], references: [id])
-  paciente    Paciente  @relation(fields: [pacienteId], references: [id])
+    id          Int      @id @default(autoincrement())
+    data        DateTime
+    psicologoId Int
+    pacienteId  Int
+
+    psicologo Psicologo @relation(fields: [psicologoId], references: [id])
+    paciente  Paciente  @relation(fields: [pacienteId], references: [id])
 }
 
-model Recompensas {
-  id        Int    @id @default(autoincrement())
-  nome      String
-  descricao String
-  preco     Int
+model Recompensa {
+    id        Int    @id @default(autoincrement())
+    nome      String
+    descricao String
+    preco     Int
 }
 
-model Tarefas {
-  id         Int      @id @default(autoincrement())
-  nome       String
-  descricao  String
-  status     String
-  pontos     Int
-  pacienteId Int
-  paciente   Paciente @relation(fields: [pacienteId], references: [id])
+model Tarefa {
+    id         Int    @id @default(autoincrement())
+    nome       String
+    descricao  String
+    status     String
+    pontos     Int
+    pacienteId Int
+
+    paciente Paciente @relation(fields: [pacienteId], references: [id])
 }
