@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../services/api_service.dart';
+import '../services/session_service.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {
@@ -19,6 +20,7 @@ class _LoginState extends State<Login>
   late Animation<double> animacao;
 
   bool mostrarSenha = false;
+  bool carregando = false;
 
   @override
   void initState() {
@@ -68,20 +70,9 @@ class _LoginState extends State<Login>
     );
   }
 
-  void entrar() {
-    String nome = nomeController.text.trim();
+  Future<void> entrar() async {
     String email = emailController.text.trim();
     String senha = senhaController.text.trim();
-
-    if (nome.isEmpty) {
-      mostrarMensagem("Digite seu nome");
-      return;
-    }
-
-    if (nome.length < 2) {
-      mostrarMensagem("Digite um nome válido");
-      return;
-    }
 
     if (email.isEmpty) {
       mostrarMensagem("Digite seu e-mail");
@@ -103,14 +94,47 @@ class _LoginState extends State<Login>
       return;
     }
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Home(
-          nome: nome,
+    setState(() {
+      carregando = true;
+    });
+
+    try {
+      final dados = await ApiService.login(
+        email,
+        senha,
+      );
+
+      final usuario = dados["usuario"];
+      final token = dados["token"];
+
+      await SessionService.salvarSessao(
+        usuario,
+        token,
+      );
+
+      if (!mounted) return;
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Home(
+            nome: usuario["nome"],
+          ),
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      mostrarMensagem(
+        e.toString().replaceFirst("Exception: ", ""),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          carregando = false;
+        });
+      }
+    }
   }
 
   @override
@@ -128,6 +152,7 @@ class _LoginState extends State<Login>
             child: Column(
               children: [
                 const SizedBox(height: 15),
+
                 Container(
                   width: 95,
                   height: 95,
@@ -141,7 +166,9 @@ class _LoginState extends State<Login>
                     size: 55,
                   ),
                 ),
+
                 const SizedBox(height: 20),
+
                 const Text(
                   "VivaMente",
                   style: TextStyle(
@@ -150,7 +177,9 @@ class _LoginState extends State<Login>
                     color: Color(0xFF3F51B5),
                   ),
                 ),
+
                 const SizedBox(height: 7),
+
                 const Text(
                   "Entre para acompanhar seu bem-estar",
                   textAlign: TextAlign.center,
@@ -159,30 +188,9 @@ class _LoginState extends State<Login>
                     color: Colors.grey,
                   ),
                 ),
+
                 const SizedBox(height: 32),
-                TextField(
-                  controller: nomeController,
-                  textCapitalization: TextCapitalization.words,
-                  decoration: InputDecoration(
-                    labelText: "Nome",
-                    hintText: "Como podemos chamar você?",
-                    prefixIcon: const Icon(
-                      Icons.person_outline,
-                      color: Color(0xFF3F51B5),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(14),
-                      borderSide: const BorderSide(
-                        color: Color(0xFF3F51B5),
-                        width: 2,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
+
                 TextField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -205,7 +213,9 @@ class _LoginState extends State<Login>
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 16),
+
                 TextField(
                   controller: senhaController,
                   obscureText: !mostrarSenha,
@@ -241,7 +251,9 @@ class _LoginState extends State<Login>
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 8),
+
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
@@ -258,30 +270,44 @@ class _LoginState extends State<Login>
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 12),
+
                 SizedBox(
                   width: double.infinity,
                   height: 54,
                   child: ElevatedButton(
-                    onPressed: entrar,
+                    onPressed: carregando ? null : entrar,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF3F51B5),
+                      disabledBackgroundColor: const Color(0xFF9FA8DA),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
-                    child: const Text(
-                      "Entrar",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: carregando
+                        ? const SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Text(
+                            "Entrar",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                 ),
+
                 const SizedBox(height: 16),
+
                 Row(
                   children: [
                     Expanded(
@@ -290,7 +316,9 @@ class _LoginState extends State<Login>
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                      ),
                       child: Text(
                         "ou",
                         style: TextStyle(
@@ -305,7 +333,9 @@ class _LoginState extends State<Login>
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 16),
+
                 SizedBox(
                   width: double.infinity,
                   height: 54,
@@ -337,7 +367,9 @@ class _LoginState extends State<Login>
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 18),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

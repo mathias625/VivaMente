@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../services/api_service.dart';
+import '../services/session_service.dart';
 import 'home.dart';
 
-class Resultado extends StatelessWidget {
+class Resultado extends StatefulWidget {
   final String nome;
   final String resultado;
 
@@ -12,12 +14,20 @@ class Resultado extends StatelessWidget {
     required this.resultado,
   });
 
+  @override
+  State<Resultado> createState() => _ResultadoState();
+}
+
+class _ResultadoState extends State<Resultado> {
+  bool registrando = true;
+  String? erro;
+
   String get emoji {
-    if (resultado == "Você parece estar bem hoje") {
+    if (widget.resultado == "Você parece estar bem hoje") {
       return "😊";
     }
 
-    if (resultado == "Hoje parece estar sendo um dia comum") {
+    if (widget.resultado == "Hoje parece estar sendo um dia comum") {
       return "😐";
     }
 
@@ -25,15 +35,59 @@ class Resultado extends StatelessWidget {
   }
 
   String get mensagem {
-    if (resultado == "Você parece estar bem hoje") {
+    if (widget.resultado == "Você parece estar bem hoje") {
       return "Que bom! Continue cuidando de você e aproveitando os momentos positivos do seu dia.";
     }
 
-    if (resultado == "Hoje parece estar sendo um dia comum") {
+    if (widget.resultado == "Hoje parece estar sendo um dia comum") {
       return "Tudo bem ter dias comuns. Continue observando como você se sente e reserve um momento para você.";
     }
 
     return "Se estiver passando por um momento difícil, conversar com alguém de confiança pode ajudar. Você não precisa lidar com tudo sozinho.";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    registrarCheckin();
+  }
+
+  Future<void> registrarCheckin() async {
+    try {
+      final id = await SessionService.getId();
+      final token = await SessionService.getToken();
+
+      if (id == null || token == null) {
+        throw Exception("Sessão não encontrada");
+      }
+
+      await ApiService.registrarCheckin(id, token);
+
+      if (!mounted) return;
+
+      setState(() {
+        registrando = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+
+      setState(() {
+        registrando = false;
+        erro = e.toString().replaceFirst("Exception: ", "");
+      });
+    }
+  }
+
+  void voltarParaHome() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Home(
+          nome: widget.nome,
+        ),
+      ),
+      (route) => false,
+    );
   }
 
   @override
@@ -74,7 +128,7 @@ class Resultado extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                "Obrigado por reservar um momento para você, $nome.",
+                "Obrigado por reservar um momento para você, ${widget.nome}.",
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
@@ -104,7 +158,7 @@ class Resultado extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      resultado,
+                      widget.resultado,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 22,
@@ -146,24 +200,50 @@ class Resultado extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 35),
+              const SizedBox(height: 25),
+              if (registrando)
+                const Column(
+                  children: [
+                    CircularProgressIndicator(
+                      color: Color(0xFF3F51B5),
+                    ),
+                    SizedBox(height: 12),
+                    Text(
+                      "Salvando seu check-in...",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              if (erro != null)
+                Column(
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: Color(0xFF3F51B5),
+                      size: 35,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      erro!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                  ],
+                ),
+              const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 height: 55,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Home(
-                          nome: nome,
-                        ),
-                      ),
-                      (route) => false,
-                    );
-                  },
+                  onPressed: registrando ? null : voltarParaHome,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF3F51B5),
+                    disabledBackgroundColor: Colors.grey[300],
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
@@ -184,9 +264,11 @@ class Resultado extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                  onPressed: registrando
+                      ? null
+                      : () {
+                          Navigator.pop(context);
+                        },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
                       color: Color(0xFF3F51B5),

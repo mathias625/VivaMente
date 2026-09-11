@@ -12,5 +12,6 @@ router.get("/buscar/:id", auth, permitir("psicologo", "paciente"), c.buscar);
 router.put("/atualizar/:id", auth, permitir("psicologo", "paciente"), c.atualizar);
 router.delete("/excluir/:id", auth, permitir("psicologo"), c.excluir);
 router.get("/meu-psicologo", auth, permitir("paciente"), c.meuPsicologo);
+router.post("/checkin", auth,permitir("paciente"), c.registrarCheckin);
 
 module.exports = router;

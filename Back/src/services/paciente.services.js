@@ -127,11 +127,57 @@ const meuPsicologo=async(usuario)=> {
     return item.psicologo;
 };
 
+const registrarCheckin = async (id, usuario) => {
+    const n = Number(id);
+
+    if (usuario.tipo !== "paciente") {
+        throw new Error("Apenas pacientes podem realizar check-in");
+    }
+
+    if (usuario.id !== n) {
+        throw new Error("Você só pode registrar check-in para seu próprio perfil");
+    }
+
+    const paciente = await prisma.paciente.findUnique({
+        where: {
+            id: n
+        }
+    });
+
+    if (!paciente) {
+        throw new Error("Paciente não encontrado");
+    }
+
+    const pontosAdicionar = 10;
+
+    const atualizado = await prisma.paciente.update({
+        where: {
+            id: n
+        },
+        data: {
+            pontos: {
+                increment: pontosAdicionar
+            }
+        },
+        select: {
+            id: true,
+            nome: true,
+            email: true,
+            pontos: true,
+            psicologoId: true
+        }
+    });
+
+    return limpar(atualizado);
+};
+
 module.exports= {
     cadastrar,
     listar,
     buscar,
     atualizar,
     excluir,
-    meuPsicologo
+    meuPsicologo,
+    registrarCheckin
+    
 };
