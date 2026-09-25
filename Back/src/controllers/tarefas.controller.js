@@ -1,52 +1,35 @@
-const prisma = require("../data/prisma");
+const service = require("../services/tarefas.services");
 
-const cadastrar = async (req, res) => {
-    const data = req.body;
-
-    const item = await prisma.tarefas.create({
-        data
-    });
-
-    res.json(item).status(201).end();
+const executar = (fn, status = 200) => async (req, res) => {
+    try {
+        return res.status(status).json(await fn(req));
+    } catch (e) {
+        return res.status(400).json({
+            mensagem: e.message
+        });
+    }
 };
 
-const listar = async (req, res) => {
-    const lista = await prisma.tarefas.findMany();
+const cadastrar = executar(
+    req => service.cadastrar(req.body, req.usuario),
+    201
+);
 
-    res.json(lista).status(200).end();
-};
+const listar = executar(
+    req => service.listar(req.usuario)
+);
 
-const buscar = async (req, res) => {
-    const { id } = req.params;
-    
-    const item = await prisma.tarefas.findUnique({
-        where: { id : Number(id) }
-    });
+const buscar = executar(
+    req => service.buscar(req.params.id, req.usuario)
+);
 
-    res.json(item).status(200).end();
-};
+const atualizar = executar(
+    req => service.atualizar(req.params.id, req.body, req.usuario)
+);
 
-const atualizar = async (req, res) => {
-    const { id } = req.params;
-    const dados = req.body;
-    
-    const item = await prisma.tarefas.update({
-        where: { id : Number(id) },
-        data: dados
-    });
-
-    res.json(item).status(200).end();
-};
-
-const excluir = async (req, res) => {
-    const { id } = req.params;
-    
-    const item = await prisma.tarefas.delete({
-        where: { id : Number(id) }
-    });
-
-    res.json(item).status(200).end();
-};
+const excluir = executar(
+    req => service.excluir(req.params.id, req.usuario)
+);
 
 module.exports = {
     cadastrar,
@@ -54,4 +37,4 @@ module.exports = {
     buscar,
     atualizar,
     excluir
-}
+};

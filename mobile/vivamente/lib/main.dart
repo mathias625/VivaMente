@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'screens/home.dart';
+
+import 'screens/splash.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -12,7 +13,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      title: "VivaMente",
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF3F51B5),
+        ),
+        fontFamily: "Roboto",
+      ),
+      home: const Splash(),
     );
   }
 }

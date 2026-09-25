@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente | Meu Perfil</title>
+    <link rel="stylesheet" href="/CSS/perfil.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">VivaMente</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="perfil.html"> Meu Perfil</a></li>
+                    <li><a href="tarefas.html">Tarefas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="perfil">
+            <div class="container">
+                <div class="perfil-header">
+                    <span class="section-label">Minha conta</span>
+                    <h1>Meu Perfil</h1>
+                    <p>Gerencie suas informações pessoais e mantenha seu perfil atualizado.</p>
+                </div>
+                <div class="perfil-card">
+                    <div class="perfil-lateral">
+                        <div class="avatar"><span>JS</span></div>
+                        <h2>João Silva</h2>
+                        <p>joao@email.com</p>
+                        <button class="btn-foto">Alterar foto</button>
+                    </div>
+                    <div class="perfil-formulario">
+                        <div class="form-header">
+                            <h2>Informações pessoais</h2>
+                            <p>Atualize seus dados abaixo.</p>
+                        </div>
+                        <form id="perfilForm">
+                            <div class="form-grid">
+                                <div class="campo">
+                                    <label for="nome">Nome completo</label>
+                                    <input type="text" id="nome" name="nome" value="João Silva"
+                                        placeholder="Digite seu nome" required>
+                                </div>
+                                <div class="campo">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" id="email" name="email" value="joao@email.com"
+                                        placeholder="Digite seu e-mail" required>
+                                </div>
+                                <div class="campo">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" id="telefone" name="telefone" value="(92) 99999-9999"
+                                        placeholder="(00)00000-0000">
+                                </div>
+                                <div class="campo">
+                                    <label for="dataNascimento">Data de nascimento</label>
+                                    <input type="date" id="dataNascimento" name="dataNascimento" value="2000-01-15">
+                                </div>
+                                <div class="campo campo-completo">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" id="cidade" name="cidade" value="Manaus"
+                                        placeholder="Digite sua cidade">
+                                </div>
+                            </div>
+                            <div class="acoes">
+                                <button type="button" class="btn-cancelar" id="cancelar">Cancelar</button>
+                                <button type="submit" class="btn-salvar">Salvar alterações</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="seguranca">
+                    <div>
+                        <span class="icone">🔒</span>
+                        <div>
+                            <h3>Segurança da conta</h3>
+                            <p>Mantenha seus dados protegidos.</p>
+                        </div>
+                    </div>
+                    <button class="btn-senha">Alterar senha</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>VivaMente</h2>
+            <p>Cuidando da sua mente para você viver melhor.</p>
+            <p class="copy">
+                © 2026 Projeto VivaMente | Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="perfil.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente | Tarefas</title>
+    <link rel="stylesheet" href="/CSS/tarefas.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">VivaMente</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
+                    <li><a href="tarefas.html" class="active">Tarefas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="tarefas-section">
+            <div class="container">
+
+                <div class="titulo">
+                    <span class="section-label">Meu progresso</span>
+                    <h1>Minhas Tarefas</h1>
+                    <p>Pequenas atitudes podem fazer uma grande diferença no seu bem-estar.</p>
+                </div>
+
+                <div class="progresso-card">
+                    <div class="progresso-info">
+                        <div>
+                            <span>Progresso de hoje</span>
+                            <strong id="progresso-texto">0 de 6 tarefas concluídas</strong>
+                        </div>
+                        <div class="porcentagem" id="porcentagem">0%</div>
+                    </div>
+
+                    <div class="barra">
+                        <div class="barra-progresso" id="barra-progresso"></div>
+                    </div>
+                </div>
+
+                <div class="tarefas-header">
+                    <div>
+                        <span class="section-label">Hoje</span>
+                        <h2>Cuide de você</h2>
+                    </div>
+                    <button class="btn-adicionar" onclick="adicionarTarefa()">+ Nova tarefa</button>
+                </div>
+
+                <div class="tarefas-grid">
+                    <article class="tarefa">
+                        <div class="tarefa-icon">🧘</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Bem-estar</span>
+                            <h3>Fazer 10 minutos de respiração</h3>
+                            <p>Reserve alguns minutos para respirar profundamente e desacelerar.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+
+                    <article class="tarefa">
+                        <div class="tarefa-icon">💧</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Autocuidado</span>
+                            <h3>Beber água</h3>
+                            <p>Lembre-se de manter seu corpo hidratado durante o dia.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+
+                    <article class="tarefa">
+                        <div class="tarefa-icon">📝</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Reflexão</span>
+                            <h3>Anotar como estou me sentindo</h3>
+                            <p>Escreva algumas palavras sobre seus sentimentos neste momento.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+
+                    <article class="tarefa">
+                        <div class="tarefa-icon">🚶</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Atividade</span>
+                            <h3>Fazer uma caminhada</h3>
+                            <p>Movimente seu corpo por pelo menos 15 minutos.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+
+                    <article class="tarefa">
+                        <div class="tarefa-icon">📵</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Digital</span>
+                            <h3>Ficar 30 minutos longe do celular</h3>
+                            <p>Faça uma pausa das telas e aproveite o momento presente.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+
+                    <article class="tarefa">
+                        <div class="tarefa-icon">❤️</div>
+                        <div class="tarefa-conteudo">
+                            <span class="categoria">Gratidão</span>
+                            <h3>Pensar em algo positivo</h3>
+                            <p>Reflita sobre uma coisa boa que aconteceu hoje.</p>
+                        </div>
+                        <button class="btn-concluir" onclick="concluirTarefa(this)">Concluir</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>VivaMente</h2>
+            <p>Cuidando da sua mente para você viver melhor.</p>
+            <p class="copy">© 2026 Projeto VivaMente | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/JS/tarefas.js"></script>
+</body>
+
+</html>

@@ -2,17 +2,15 @@ const express = require("express");
 
 const router = express.Router();
 
-const { 
-    cadastrar, 
-    listar, 
-    buscar, 
-    atualizar, 
-    excluir } = require("../controllers/consulta.controller");
+const c = require("../controllers/consulta.controller");
+const auth = require("../middleware/auth.middleware");
 
-router.post("/cadastrar", cadastrar);
-router.get("/listar", listar);
-router.get("/buscar/:id", buscar);
-router.put("/atualizar/:id", atualizar);
-router.delete("/excluir/:id", excluir);
+router.use(auth);
+
+router.post("/cadastrar", c.cadastrar);
+router.get("/listar", c.listar);
+router.get("/buscar/:id", c.buscar);
+router.put("/atualizar/:id", c.atualizar);
+router.delete("/excluir/:id", c.excluir);
 
 module.exports = router;
