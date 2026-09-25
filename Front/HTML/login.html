@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente | Entrar</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">VivaMente</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="login">
+            <div class="login-card">
+                <div class="login-lateral">
+                    <span class="section-label">Bem-vindo(a) de volta</span>
+                    <h1>Sua mente merece <strong>cuidado contínuo</strong></h1>
+                    <p>Acesse sua conta para continuar suas conversas, consultas e tarefas de bem-estar.</p>
+                    <ul class="login-destaques">
+                        <li>Chat-bot Toquinho sempre disponível</li>
+                        <li>Consultas com profissionais</li>
+                        <li>Tarefas e recompensas diárias</li>
+                    </ul>
+                </div>
+
+                <div class="login-formulario">
+                    <div class="form-header">
+                        <h2>Entrar</h2>
+                        <p>Informe seus dados para acessar a plataforma.</p>
+                    </div>
+
+                    <div class="tipo-toggle" role="tablist" aria-label="Tipo de acesso">
+                        <button type="button" class="tipo-btn ativo" data-tipo="paciente" role="tab"
+                            aria-selected="true">Sou paciente</button>
+                        <button type="button" class="tipo-btn" data-tipo="psicologo" role="tab"
+                            aria-selected="false">Sou psicólogo(a)</button>
+                    </div>
+
+                    <form id="loginForm" novalidate>
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="voce@email.com" required
+                                autocomplete="email">
+                        </div>
+
+                        <div class="campo">
+                            <label for="senha">Senha</label>
+                            <div class="campo-senha">
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
+                                    required autocomplete="current-password">
+                                <button type="button" class="btn-olho" id="toggleSenha" aria-label="Mostrar senha">👁</button>
+                            </div>
+                        </div>
+
+                        <div class="campo-opcoes">
+                            <label class="lembrar">
+                                <input type="checkbox" id="lembrar" name="lembrar">
+                                Lembrar de mim
+                            </label>
+                            <a href="#" class="esqueci">Esqueci minha senha</a>
+                        </div>
+
+                        <p class="mensagem-erro" id="mensagemErro" role="alert"></p>
+
+                        <button type="submit" class="btn-entrar" id="btnEntrar">Entrar</button>
+                    </form>
+
+                    <p class="cadastro-link">Ainda não tem conta? <a href="#">Cadastre-se</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>VivaMente</h2>
+            <p>Cuidando da sua mente para você viver melhor.</p>
+            <p class="copy">© 2026 Projeto VivaMente | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../JS/login.js"></script>
+</body>
+
+</html>
