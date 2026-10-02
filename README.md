@@ -13,6 +13,7 @@ O sistema permite o gerenciamento de conteúdos de bem-estar, promovendo convers
 - Node.js
 - Prisma
 - JWT
+- OpenRouter
 
 ### Frontend:
 - HTML

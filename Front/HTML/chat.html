@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente - Chat</title>
+    <link rel="stylesheet" href="../CSS/chat.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand">
+                    <div class="brand-icon">V</div>
+                    <div>
+                        <h1>VivaMente</h1>
+                    </div>
+                </div>
+
+                <button class="new-chat" id="novaConversa">
+                    <span>+</span>
+                    Nova conversa
+                </button>
+            </div>
+
+            <div class="conversas-header">
+                <span>Conversas</span>
+                <button id="atualizarConversas" title="Atualizar">↻</button>
+            </div>
+
+            <div class="conversas" id="listaConversas"></div>
+
+            <div class="sidebar-bottom">
+                <div class="user-card">
+                    <div class="avatar" id="avatarUsuario">U</div>
+                    <div class="user-info">
+                        <strong id="nomeUsuario">Usuário</strong>
+                        <span>Paciente</span>
+                    </div>
+                    <button class="logout" id="sair" title="Sair">↪</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat">
+            <header class="chat-header">
+                <div class="assistant-info">
+                    <div class="assistant-avatar">✦</div>
+                    <div>
+                        <h2>Toquinho</h2>
+                        <div class="status">
+                            <span></span>
+                            Assistente de apoio
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="messages" id="mensagens">
+                <div class="welcome" id="telaInicial">
+                    <div class="welcome-icon">✦</div>
+                    <span class="eyebrow">CUIDADO QUE TRANSFORMA</span>
+                    <h2>Como você está se sentindo hoje?</h2>
+                    
+                    <div class="suggestions">
+                        <button class="suggestion">Quero falar sobre como estou me sentindo</button>
+                        <button class="suggestion">Estou tendo um dia difícil</button>
+                        <button class="suggestion">Quero organizar meus pensamentos</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="typing" id="digitando">
+                <span></span>
+                <span></span>
+                <span></span>
+                Toquinho está pensando...
+            </div>
+
+            <form class="message-form" id="formMensagem">
+                <div class="input-area">
+                    <textarea
+                        id="textoMensagem"
+                        rows="1"
+                        placeholder="Digite como você está se sentindo..."
+                        maxlength="2000"
+                    ></textarea>
+                    <button type="submit" id="enviarMensagem" title="Enviar">
+                        ↑
+                    </button>
+                </div>
+                <p class="disclaimer">
+                    O Toquinho oferece apoio, mas não substitui acompanhamento profissional.
+                </p>
+            </form>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="../JS/chat.js"></script>
+</body>
+</html>
