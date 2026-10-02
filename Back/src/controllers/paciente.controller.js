@@ -2,14 +2,8 @@ const service = require("../services/paciente.services");
 
 const executar = (fn, status = 200) => async (req, res) => {
     try {
-        console.log("ROTA PACIENTE EXECUTADA");
-        console.log("BODY:", req.body);
-        console.log("USUARIO:", req.usuario);
-
         return res.status(status).json(await fn(req));
     } catch (e) {
-        console.error("ERRO NO CONTROLLER:", e);
-
         return res.status(400).json({
             mensagem: e.message
         });
@@ -38,26 +32,10 @@ const excluir = executar(
 );
 
 const meuPsicologo = async (req, res) => {
-    try {
-        console.log("ROTA MEU PSICOLOGO EXECUTADA");
-        console.log("USUARIO:", req.usuario);
-
-        return res.status(200).json(
-            await service.meuPsicologo(req.usuario)
-        );
-    } catch (e) {
-        console.error("ERRO NO MEU PSICOLOGO:", e);
-
-        return res.status(400).json({
-            mensagem: e.message
-        });
-    }
+    return res.status(200).json(
+        await service.meuPsicologo(req.usuario)
+    );
 };
-
-const registrarCheckin = executar(
-    req => service.registrarCheckin(req.usuario.id, req.usuario),
-    200
-);
 
 module.exports = {
     cadastrar,
@@ -65,6 +43,5 @@ module.exports = {
     buscar,
     atualizar,
     excluir,
-    meuPsicologo,
-    registrarCheckin
+    meuPsicologo
 };

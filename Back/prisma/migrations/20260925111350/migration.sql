@@ -54,6 +54,26 @@ CREATE TABLE `Tarefa` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `Conversa` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `pacienteId` INTEGER NOT NULL,
+    `criadaEm` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Mensagem` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `conversaId` INTEGER NOT NULL,
+    `tipo` VARCHAR(191) NOT NULL,
+    `texto` VARCHAR(191) NOT NULL,
+    `criadaEm` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `Paciente` ADD CONSTRAINT `Paciente_psicologoId_fkey` FOREIGN KEY (`psicologoId`) REFERENCES `Psicologo`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -65,3 +85,9 @@ ALTER TABLE `Consulta` ADD CONSTRAINT `Consulta_pacienteId_fkey` FOREIGN KEY (`p
 
 -- AddForeignKey
 ALTER TABLE `Tarefa` ADD CONSTRAINT `Tarefa_pacienteId_fkey` FOREIGN KEY (`pacienteId`) REFERENCES `Paciente`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Conversa` ADD CONSTRAINT `Conversa_pacienteId_fkey` FOREIGN KEY (`pacienteId`) REFERENCES `Paciente`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Mensagem` ADD CONSTRAINT `Mensagem_conversaId_fkey` FOREIGN KEY (`conversaId`) REFERENCES `Conversa`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

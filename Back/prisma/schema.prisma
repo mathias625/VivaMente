@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
     provider = "mysql"
+    
 }
 
 model Psicologo {
@@ -27,6 +28,7 @@ model Paciente {
     psicologo Psicologo @relation(fields: [psicologoId], references: [id])
     consultas Consulta[]
     tarefas   Tarefa[]
+    conversas Conversa[]
 }
 
 model Consulta {
@@ -55,4 +57,23 @@ model Tarefa {
     pacienteId Int
 
     paciente Paciente @relation(fields: [pacienteId], references: [id])
+}
+
+model Conversa {
+    id        Int      @id @default(autoincrement())
+    pacienteId Int
+    criadaEm  DateTime @default(now())
+
+    paciente  Paciente @relation(fields: [pacienteId], references: [id])
+    mensagens Mensagem[]
+}
+
+model Mensagem {
+    id         Int      @id @default(autoincrement())
+    conversaId Int
+    tipo       String
+    texto      String
+    criadaEm   DateTime @default(now())
+
+    conversa Conversa @relation(fields: [conversaId], references: [id])
 }
