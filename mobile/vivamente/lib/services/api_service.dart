@@ -75,4 +75,52 @@ class ApiService {
       dados["mensagem"] ?? "Erro ao registrar check-in",
     );
   }
+
+  static Future<List<dynamic>> listarTarefas(
+    String token,
+  ) async {
+    final response = await http.get(
+      Uri.parse("$baseUrl/tarefas/listar"),
+      headers: {
+        "Authorization": "Bearer $token",
+      },
+    );
+
+    final dados = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return dados;
+    }
+
+    throw Exception(
+      dados["mensagem"] ?? "Erro ao buscar tarefas",
+    );
+  }
+
+  static Future<Map<String, dynamic>> atualizarTarefa(
+    int id,
+    String status,
+    String token,
+  ) async {
+    final response = await http.put(
+      Uri.parse("$baseUrl/tarefas/atualizar/$id"),
+      headers: {
+        "Authorization": "Bearer $token",
+        "Content-Type": "application/json",
+      },
+      body: jsonEncode({
+        "status": status,
+      }),
+    );
+
+    final dados = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return dados;
+    }
+
+    throw Exception(
+      dados["mensagem"] ?? "Erro ao atualizar tarefa",
+    );
+  }
 }
