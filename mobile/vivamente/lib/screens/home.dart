@@ -5,6 +5,7 @@ import '../services/session_service.dart';
 import '../widgets/menu.dart';
 import 'perfil.dart';
 import 'perguntas.dart';
+import 'tarefas.dart';
 
 class Home extends StatefulWidget {
   final String nome;
@@ -45,6 +46,7 @@ class _HomeState extends State<Home> {
       setState(() {
         paciente = dados;
         carregando = false;
+        erro = null;
       });
     } catch (e) {
       if (!mounted) return;
@@ -85,6 +87,15 @@ class _HomeState extends State<Home> {
       Navigator.push(
         context,
         MaterialPageRoute(
+          builder: (context) => const Tarefas(),
+        ),
+      );
+    }
+
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
           builder: (context) => Perguntas(
             nome: nomePaciente,
           ),
@@ -92,7 +103,7 @@ class _HomeState extends State<Home> {
       );
     }
 
-    if (index == 2) {
+    if (index == 3) {
       Navigator.push(
         context,
         MaterialPageRoute(
