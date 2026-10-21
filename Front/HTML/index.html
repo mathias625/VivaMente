@@ -14,16 +14,13 @@
             <a href="#home" class="logo">VivaMente</a>
             <nav>
                 <ul>
-                    <nav>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#sobre">Sobre Nós</a></li>
-                            <li><a href="#depoimentos">Depoimentos</a></li>
-                            <li><a href="#contato">Contato</a></li>
-                            <li><a href="perfil.html">Meu Perfil</a></li>
-                            <li><a href="tarefas.html">Tarefas</a></li>
-                        </ul>
-                    </nav>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
+                    <li><a href="tarefas.html">Tarefas</a></li>
+                    <li id="navAuth"><a href="login.html" class="nav-entrar">Entrar</a></li>
                 </ul>
             </nav>
         </div>
@@ -133,12 +130,91 @@
                     <span class="section-label">Contato</span>
                     <h2>Contate-nos!</h2>
                 </div>
-                <form>
-                    <input type="text" placeholder="Nome" required>
-                    <input type="email" placeholder="E-mail" required>
-                    <textarea placeholder="Sua mensagem" rows="6" required></textarea>
-                    <button type="submit">Enviar mensagem</button>
-                </form>
+
+                <div class="contato-grid">
+                    <aside class="contato-info">
+                        <h3>Como podemos ajudar?</h3>
+                        <p>Tire dúvidas, envie sugestões ou peça ajuda com o seu acesso. Sua mensagem chega
+                            diretamente à equipe do VivaMente.</p>
+
+                        <div class="contato-urgencia">
+                            <strong>Precisa de apoio agora?</strong>
+                            <p>Esta página não é um canal de emergência. Ligue <b>188</b> (CVV, 24 horas, gratuito)
+                                ou <b>192</b> (SAMU).</p>
+                        </div>
+
+                        <p class="contato-privacidade">Usamos seus dados apenas para responder à sua mensagem.</p>
+                    </aside>
+
+                    <div class="contato-card">
+                        <form id="contatoForm" novalidate>
+                            <div class="contato-linha">
+                                <div class="campo">
+                                    <label for="contatoNome">Nome</label>
+                                    <input type="text" id="contatoNome" name="nome" maxlength="100"
+                                        autocomplete="name" placeholder="Como podemos te chamar?"
+                                        aria-describedby="erroContatoNome" required>
+                                    <p class="campo-erro" id="erroContatoNome"></p>
+                                </div>
+                                <div class="campo">
+                                    <label for="contatoEmail">E-mail</label>
+                                    <input type="email" id="contatoEmail" name="email" maxlength="150"
+                                        autocomplete="email" autocapitalize="off" spellcheck="false"
+                                        placeholder="voce@email.com" aria-describedby="erroContatoEmail" required>
+                                    <p class="campo-erro" id="erroContatoEmail"></p>
+                                </div>
+                            </div>
+
+                            <div class="campo">
+                                <label for="contatoAssunto">Assunto</label>
+                                <select id="contatoAssunto" name="assunto" aria-describedby="erroContatoAssunto"
+                                    required>
+                                    <option value="" disabled selected>Escolha um assunto</option>
+                                    <option value="duvida">Dúvida</option>
+                                    <option value="acesso">Ajuda com meu acesso</option>
+                                    <option value="sugestao">Sugestão</option>
+                                    <option value="elogio">Elogio</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                                <p class="campo-erro" id="erroContatoAssunto"></p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="contatoMensagem">Mensagem</label>
+                                <textarea id="contatoMensagem" name="mensagem" rows="6" maxlength="2000"
+                                    placeholder="Escreva aqui a sua mensagem" aria-describedby="erroContatoMensagem contadorMensagem"
+                                    required></textarea>
+                                <div class="campo-rodape">
+                                    <p class="campo-erro" id="erroContatoMensagem"></p>
+                                    <span class="contador" id="contadorMensagem">0/2000</span>
+                                </div>
+                            </div>
+
+                            <!-- Campo isca contra robôs: pessoas não veem nem preenchem. -->
+                            <div class="campo-isca" aria-hidden="true">
+                                <label for="contatoSite">Não preencha este campo</label>
+                                <input type="text" id="contatoSite" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <p class="mensagem-erro" id="contatoErro" role="alert"></p>
+
+                            <button type="submit" class="btn-enviar" id="contatoEnviar">Enviar mensagem</button>
+                        </form>
+
+                        <div class="contato-sucesso" id="contatoSucesso" hidden>
+                            <div class="sucesso-icone" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3 id="contatoSucessoTitulo" tabindex="-1">Mensagem enviada</h3>
+                            <p id="contatoSucessoTexto">Recebemos sua mensagem. Obrigado por falar com a gente.</p>
+                            <button type="button" class="btn-enviar btn-secundario" id="contatoNova">Enviar outra
+                                mensagem</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -151,6 +227,8 @@
         </div>
     </footer>
 
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/contato.js"></script>
 </body>
 
 </html>
