@@ -443,3 +443,32 @@ footer p {
         font-size: 28px;
     }
 }
+
+/* Botões Entrar / Sair do menu (preenchidos pelo auth.js) */
+nav a.nav-entrar,
+nav button.nav-sair {
+    display: inline-block;
+    padding: 9px 22px;
+    border: 1px solid var(--secondary);
+    border-radius: 50px;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+nav a.nav-entrar::after {
+    display: none;
+}
+nav a.nav-entrar:hover,
+nav button.nav-sair:hover {
+    background: var(--secondary);
+    color: var(--text);
+}
+nav a.nav-entrar:focus-visible,
+nav button.nav-sair:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}

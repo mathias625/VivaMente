@@ -42,35 +42,48 @@
                         <p>Informe seus dados para acessar a plataforma.</p>
                     </div>
 
-                    <div class="tipo-toggle" role="tablist" aria-label="Tipo de acesso">
-                        <button type="button" class="tipo-btn ativo" data-tipo="paciente" role="tab"
-                            aria-selected="true">Sou paciente</button>
-                        <button type="button" class="tipo-btn" data-tipo="psicologo" role="tab"
-                            aria-selected="false">Sou psicólogo(a)</button>
+                    <div class="tipo-toggle" role="group" aria-label="Tipo de acesso">
+                        <button type="button" class="tipo-btn ativo" data-tipo="paciente"
+                            aria-pressed="true">Sou paciente</button>
+                        <button type="button" class="tipo-btn" data-tipo="psicologo"
+                            aria-pressed="false">Sou psicólogo(a)</button>
                     </div>
 
                     <form id="loginForm" novalidate>
                         <div class="campo">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="voce@email.com" required
-                                autocomplete="email">
+                            <input type="email" id="email" name="email" class="campo-input"
+                                placeholder="voce@email.com" autocomplete="email" autocapitalize="off"
+                                spellcheck="false" aria-describedby="erroEmail" required>
+                            <p class="campo-erro" id="erroEmail"></p>
                         </div>
 
                         <div class="campo">
                             <label for="senha">Senha</label>
                             <div class="campo-senha">
-                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
-                                    required autocomplete="current-password">
-                                <button type="button" class="btn-olho" id="toggleSenha" aria-label="Mostrar senha">👁</button>
+                                <input type="password" id="senha" name="senha" class="campo-input"
+                                    placeholder="Digite sua senha" autocomplete="current-password"
+                                    aria-describedby="erroSenha" required>
+                                <button type="button" class="btn-olho" id="toggleSenha" aria-label="Mostrar senha"
+                                    aria-pressed="false">
+                                    <svg class="icone-olho" viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <line class="risco" x1="3" y1="3" x2="21" y2="21"></line>
+                                    </svg>
+                                </button>
                             </div>
+                            <p class="campo-erro" id="erroSenha"></p>
                         </div>
 
                         <div class="campo-opcoes">
                             <label class="lembrar">
                                 <input type="checkbox" id="lembrar" name="lembrar">
-                                Lembrar de mim
+                                Lembrar meu e-mail
                             </label>
-                            <a href="#" class="esqueci">Esqueci minha senha</a>
+                            <a href="index.html?assunto=acesso#contato" class="esqueci">Esqueci minha senha</a>
                         </div>
 
                         <p class="mensagem-erro" id="mensagemErro" role="alert"></p>
@@ -78,7 +91,8 @@
                         <button type="submit" class="btn-entrar" id="btnEntrar">Entrar</button>
                     </form>
 
-                    <p class="cadastro-link">Ainda não tem conta? <a href="#">Cadastre-se</a></p>
+                    <p class="cadastro-link">Ainda não tem acesso? O cadastro é feito pelo seu psicólogo(a).
+                        <a href="index.html?assunto=acesso#contato">Fale com a gente</a></p>
                 </div>
             </div>
         </section>
@@ -92,6 +106,7 @@
         </div>
     </footer>
 
+    <script src="../JS/auth.js"></script>
     <script src="../JS/login.js"></script>
 </body>
 
