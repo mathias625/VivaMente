@@ -3,7 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../services/session_service.dart';
+<<<<<<< HEAD
 import 'Paciente/home.dart';
+=======
+import 'home.dart';
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 import 'login.dart';
 import 'psicologo/home_psicologo.dart';
 
@@ -66,7 +70,10 @@ class _SplashState extends State<Splash>
     final token = await SessionService.getToken();
     final id = await SessionService.getId();
     final nome = await SessionService.getNome();
+<<<<<<< HEAD
     final tipo = await SessionService.getTipo();
+=======
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 
     if (!mounted) return;
 
@@ -74,9 +81,15 @@ class _SplashState extends State<Splash>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
+<<<<<<< HEAD
           builder: (context) => tipo == "psicologo"
               ? const HomePsicologo()
               : Home(nome: nome),
+=======
+          builder: (context) => Home(
+            nome: nome,
+          ),
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
         ),
       );
     } else {

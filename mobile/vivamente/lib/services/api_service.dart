@@ -106,6 +106,30 @@ class ApiService {
     throw Exception(dados["mensagem"] ?? "Erro ao buscar tarefas");
   }
 
+<<<<<<< HEAD
+=======
+  static Future<List<dynamic>> listarTarefas(
+    String token,
+  ) async {
+    final response = await http.get(
+      Uri.parse("$baseUrl/tarefas/listar"),
+      headers: {
+        "Authorization": "Bearer $token",
+      },
+    );
+
+    final dados = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      return dados;
+    }
+
+    throw Exception(
+      dados["mensagem"] ?? "Erro ao buscar tarefas",
+    );
+  }
+
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
   static Future<Map<String, dynamic>> atualizarTarefa(
     int id,
     String status,
@@ -117,15 +141,25 @@ class ApiService {
         "Authorization": "Bearer $token",
         "Content-Type": "application/json",
       },
+<<<<<<< HEAD
       body: jsonEncode({"status": status}),
     );
 
     final dados = _decode(response);
+=======
+      body: jsonEncode({
+        "status": status,
+      }),
+    );
+
+    final dados = jsonDecode(response.body);
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 
     if (response.statusCode == 200) {
       return dados;
     }
 
+<<<<<<< HEAD
     throw Exception(dados["mensagem"] ?? "Erro ao atualizar tarefa");
   }
 
@@ -213,3 +247,10 @@ class ApiService {
     throw Exception(dados["mensagem"] ?? "Erro ao enviar mensagem");
   }
 }
+=======
+    throw Exception(
+      dados["mensagem"] ?? "Erro ao atualizar tarefa",
+    );
+  }
+}
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523

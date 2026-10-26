@@ -1,37 +1,57 @@
 const prisma = require("../data/prisma");
 const { hashPassword } = require("../utils/password");
-const { criptografar, descriptografar } = require("../utils/crypto");
 
+<<<<<<< HEAD
 
 const safe = p => ({
     ...p, nome: descriptografar(p.nome), email: descriptografar(p.email)
+=======
+const safe = (p) => ({
+    ...p
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 });
 
-const cadastrar = async data => {
-    if (!data.nome || !data.email || !data.senha) throw new Error("nome, email e senha são obrigatórios");
+const cadastrar = async (data) => {
+    if (!data.nome || !data.email || !data.senha) {
+        throw new Error("nome, email e senha são obrigatórios");
+    }
+
     if (await prisma.psicologo.findUnique({
-        where: { email: data.email }
-    })) throw new Error("Email já cadastrado");
+        where: {
+            email: data.email
+        }
+    })) {
+        throw new Error("Email já cadastrado");
+    }
 
     return safe(await prisma.psicologo.create({
         data: {
-            nome: criptografar(data.nome),
+            nome: data.nome,
             email: data.email,
             senha: hashPassword(data.senha)
         }
     }));
 };
 
-const listar = async usuario => {
+const listar = async (usuario) => {
     if (usuario.tipo === "paciente") {
         const p = await prisma.paciente.findUnique({
-            where: { id: usuario.id },
-            select: { psicologoId: true }
+            where: {
+                id: usuario.id
+            },
+            select: {
+                psicologoId: true
+            }
         });
 
-        if (!p) throw Error("Paciente não encontrado");
+        if (!p) {
+            throw Error("Paciente não encontrado");
+        }
+
         const x = await prisma.psicologo.findUnique({
-            where: { id: p.psicologoId },
+            where: {
+                id: p.psicologoId
+            },
             select: {
                 id: true,
                 nome: true,
@@ -56,12 +76,25 @@ const listar = async usuario => {
 const buscar = async (id, usuario) => {
     const n = Number(id);
 
-    if (usuario.tipo === 'paciente' && usuario.id !== n) {
-        throw new Error("Acesso negado");
+    if (usuario.tipo === "paciente") {
+        const paciente = await prisma.paciente.findUnique({
+            where: {
+                id: usuario.id
+            },
+            select: {
+                psicologoId: true
+            }
+        });
+
+        if (!paciente || paciente.psicologoId !== n) {
+            throw new Error("Acesso negado");
+        }
     }
 
     const p = await prisma.psicologo.findUnique({
-        where: { id: n },
+        where: {
+            id: n
+        },
         include: {
             pacientes: {
                 select: {
@@ -79,6 +112,7 @@ const buscar = async (id, usuario) => {
         throw new Error("Psicólogo não encontrado");
     }
 
+<<<<<<< HEAD
     return {
         ...p,
         nome: descriptografar(p.nome),
@@ -90,13 +124,22 @@ const buscar = async (id, usuario) => {
             email: descriptografar(paciente.email)
         }))
     };
+=======
+    return safe(p);
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 };
 
 const atualizar = async (id, dados, usuario) => {
     const n = Number(id);
-    if (usuario.id !== n) throw new Error("Você só pode alterar seu próprio perfil");
-    if (dados.nome) dados.nome = criptografar(dados.nome);
-    if (dados.senha) dados.senha = hashPassword(dados.senha);
+
+    if (usuario.id !== n) {
+        throw new Error("Você só pode alterar seu próprio perfil");
+    }
+
+    if (dados.senha) {
+        dados.senha = hashPassword(dados.senha);
+    }
+
     const p = await prisma.psicologo.update({
         where: {
             id: n
@@ -107,22 +150,33 @@ const atualizar = async (id, dados, usuario) => {
             nome: true,
             email: true
         }
-    }
-    );
+    });
+
     return safe(p);
-}
-    ;
+};
+
 const excluir = async (id, usuario) => {
-    if (usuario.id !== Number(id)) throw new Error("Você só pode excluir seu próprio perfil");
+    if (usuario.id !== Number(id)) {
+        throw new Error("Você só pode excluir seu próprio perfil");
+    }
 
     return prisma.psicologo.delete({
-        where: { id: Number(id) }
+        where: {
+            id: Number(id)
+        }
     });
 };
 
 const listarPacientes = async (usuario) => {
+<<<<<<< HEAD
     const pacientes = await prisma.paciente.findMany({
         where: { psicologoId: usuario.id },
+=======
+    const p = await prisma.paciente.findMany({
+        where: {
+            psicologoId: usuario.id
+        },
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
         select: {
             id: true,
             nome: true,
@@ -131,11 +185,15 @@ const listarPacientes = async (usuario) => {
         }
     });
 
+<<<<<<< HEAD
     return pacientes.map((paciente) => ({
         ...paciente,
         nome: descriptografar(paciente.nome),
         email: descriptografar(paciente.email)
     }));
+=======
+    return p.map(safe);
+>>>>>>> bcff094e59fa8390c7a153b686f7dbee3928a523
 };
 
 module.exports = {
@@ -145,5 +203,4 @@ module.exports = {
     atualizar,
     excluir,
     listarPacientes
-}
-    ;
+};
