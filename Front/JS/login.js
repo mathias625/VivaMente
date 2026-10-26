@@ -15,18 +15,25 @@ tipoBotoes.forEach((botao) => {
             b.classList.remove("ativo");
             b.setAttribute("aria-selected", "false");
         });
+
         botao.classList.add("ativo");
         botao.setAttribute("aria-selected", "true");
+
         tipoSelecionado = botao.dataset.tipo;
+
         esconderErro();
     });
 });
 
 toggleSenhaBtn.addEventListener("click", () => {
     const visivel = senhaInput.type === "text";
+
     senhaInput.type = visivel ? "password" : "text";
     toggleSenhaBtn.textContent = visivel ? "👁" : "🙈";
-    toggleSenhaBtn.setAttribute("aria-label", visivel ? "Mostrar senha" : "Ocultar senha");
+    toggleSenhaBtn.setAttribute(
+        "aria-label",
+        visivel ? "Mostrar senha" : "Ocultar senha"
+    );
 });
 
 function mostrarErro(texto) {
@@ -46,6 +53,7 @@ function definirCarregando(carregando) {
 
 form.addEventListener("submit", async (evento) => {
     evento.preventDefault();
+
     esconderErro();
 
     const email = document.getElementById("email").value.trim();
@@ -61,24 +69,48 @@ form.addEventListener("submit", async (evento) => {
     try {
         const resposta = await fetch(`${API_BASE_URL}/auth/login`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, senha, tipo: tipoSelecionado })
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                senha,
+                tipo: tipoSelecionado
+            })
         });
 
         const dados = await resposta.json();
 
         if (!resposta.ok) {
-            throw new Error(dados.mensagem || "Não foi possível entrar. Verifique seus dados.");
+            throw new Error(
+                dados.mensagem ||
+                "Não foi possível entrar. Verifique seus dados."
+            );
+        }
+
+        if (!dados.token) {
+            throw new Error("O servidor não retornou um token de acesso.");
         }
 
         const lembrar = document.getElementById("lembrar").checked;
-        const armazenamento = lembrar ? window.localStorage : window.sessionStorage;
+
+        const armazenamento = lembrar
+            ? window.localStorage
+            : window.sessionStorage;
+
         armazenamento.setItem("vivamente_token", dados.token);
-        armazenamento.setItem("vivamente_usuario", JSON.stringify(dados.usuario));
+        armazenamento.setItem(
+            "vivamente_usuario",
+            JSON.stringify(dados.usuario)
+        );
 
         window.location.href = "perfil.html";
+
     } catch (erro) {
-        mostrarErro(erro.message || "Erro ao conectar com o servidor. Tente novamente.");
+        mostrarErro(
+            erro.message ||
+            "Erro ao conectar com o servidor. Tente novamente."
+        );
     } finally {
         definirCarregando(false);
     }

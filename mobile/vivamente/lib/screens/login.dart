@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../services/session_service.dart';
-import 'home.dart';
+import 'Paciente/home.dart';
+import 'psicologo/home_psicologo.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -19,6 +20,7 @@ class _LoginState extends State<Login>
   late AnimationController controller;
   late Animation<double> animacao;
 
+  String tipoUsuario = "paciente";
   bool mostrarSenha = false;
   bool carregando = false;
 
@@ -102,6 +104,7 @@ class _LoginState extends State<Login>
       final dados = await ApiService.login(
         email,
         senha,
+        tipo: tipoUsuario,
       );
 
       final usuario = dados["usuario"];
@@ -117,9 +120,9 @@ class _LoginState extends State<Login>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Home(
-            nome: usuario["nome"],
-          ),
+          builder: (context) => tipoUsuario == "psicologo"
+              ? const HomePsicologo()
+              : Home(nome: usuario["nome"]),
         ),
       );
     } catch (e) {
@@ -190,6 +193,21 @@ class _LoginState extends State<Login>
                 ),
 
                 const SizedBox(height: 32),
+
+                SegmentedButton<String>(
+                  segments: const [
+                    ButtonSegment(value: "paciente", label: Text("Paciente"), icon: Icon(Icons.person_outline)),
+                    ButtonSegment(value: "psicologo", label: Text("Psicólogo"), icon: Icon(Icons.medical_services_outlined)),
+                  ],
+                  selected: {tipoUsuario},
+                  onSelectionChanged: (selecionado) {
+                    setState(() {
+                      tipoUsuario = selecionado.first;
+                    });
+                  },
+                ),
+
+                const SizedBox(height: 24),
 
                 TextField(
                   controller: emailController,

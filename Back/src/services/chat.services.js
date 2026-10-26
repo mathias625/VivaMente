@@ -151,7 +151,7 @@ Responda de forma natural, acolhedora e objetiva.
                 const erro = new Error(
                     dados.error?.message || "Erro ao chamar o OpenRouter"
                 );
-
+                
                 erro.status = respostaOpenRouter.status;
 
                 throw erro;

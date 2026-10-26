@@ -1,4 +1,25 @@
 const prisma = require("../data/prisma");
+const { descriptografar } = require("../utils/crypto");
+
+const descriptografarPaciente = (paciente) => {
+    if (!paciente) return paciente;
+
+    return {
+        ...paciente,
+        nome: descriptografar(paciente.nome),
+        email: descriptografar(paciente.email)
+    };
+};
+
+const descriptografarPsicologo = (psicologo) => {
+    if (!psicologo) return psicologo;
+
+    return {
+        ...psicologo,
+        nome: descriptografar(psicologo.nome),
+        email: descriptografar(psicologo.email)
+    };
+};
 
 const validarIds = (id) => {
     const n = Number(id);
@@ -19,20 +40,27 @@ const cadastrar = async (data, usuario) => {
 };
 
 const listar = async (usuario) => {
-    if (usuario.tipo === "psicologo") return prisma.consulta.findMany({
-        where: { psicologoId: usuario.id },
-        include: {
-            paciente: {
-                select: {
-                    id: true,
-                    nome: true,
-                    email: true
+    if (usuario.tipo === "psicologo") {
+        const consultas = await prisma.consulta.findMany({
+            where: { psicologoId: usuario.id },
+            include: {
+                paciente: {
+                    select: {
+                        id: true,
+                        nome: true,
+                        email: true
+                    }
                 }
             }
-        }
+        });
+
+        return consultas.map((consulta) => ({
+            ...consulta,
+            paciente: descriptografarPaciente(consulta.paciente)
+        }));
     }
-    );
-    return prisma.consulta.findMany({
+
+    const consultas = await prisma.consulta.findMany({
         where: { pacienteId: usuario.id },
         include: {
             psicologo: {
@@ -44,7 +72,13 @@ const listar = async (usuario) => {
             }
         }
     });
+
+    return consultas.map((consulta) => ({
+        ...consulta,
+        psicologo: descriptografarPsicologo(consulta.psicologo)
+    }));
 };
+
 
 const buscar = async (id, usuario) => {
     const item = await prisma.consulta.findUnique({
@@ -56,10 +90,28 @@ const buscar = async (id, usuario) => {
     });
 
     if (!item) throw new Error("Consulta não encontrada");
-    if (usuario.tipo === "psicologo" && item.psicologoId !== usuario.id) throw new Error("Acesso negado");
-    if (usuario.tipo === "paciente" && item.pacienteId !== usuario.id) throw new Error("Acesso negado");
-    return item;
+
+    if (
+        usuario.tipo === "psicologo" &&
+        item.psicologoId !== usuario.id
+    ) {
+        throw new Error("Acesso negado");
+    }
+
+    if (
+        usuario.tipo === "paciente" &&
+        item.pacienteId !== usuario.id
+    ) {
+        throw new Error("Acesso negado");
+    }
+
+    return {
+        ...item,
+        psicologo: descriptografarPsicologo(item.psicologo),
+        paciente: descriptografarPaciente(item.paciente)
+    };
 };
+
 
 const atualizar = async (id, data, usuario) => {
     if (usuario.tipo !== "psicologo") throw new Error("Apenas psicólogos podem atualizar consultas");

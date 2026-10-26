@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/splash.dart';
+import 'screens/Paciente/chat_toquinho.dart';
 
 void main() {
   runApp(const App());
@@ -22,6 +23,9 @@ class App extends StatelessWidget {
         fontFamily: "Roboto",
       ),
       home: const Splash(),
+      routes: {
+        "/toquinho": (context) => const ChatToquinho(),
+      },
     );
   }
 }

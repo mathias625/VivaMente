@@ -25,6 +25,11 @@ class Menu extends StatelessWidget {
           label: "Início",
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.task_alt_outlined),
+          activeIcon: Icon(Icons.task_alt),
+          label: "Tarefas",
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.favorite_outline),
           activeIcon: Icon(Icons.favorite),
           label: "Check-in",

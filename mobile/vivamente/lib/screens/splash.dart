@@ -2,10 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../services/session_service.dart';
+import 'Paciente/home.dart';
 import 'login.dart';
+import 'psicologo/home_psicologo.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({super.key});
+  const Splash({
+    super.key,
+  });
 
   @override
   State<Splash> createState() => _SplashState();
@@ -48,18 +53,40 @@ class _SplashState extends State<Splash>
 
     controller.forward();
 
-    Timer(const Duration(seconds: 3), () {
-      if (!mounted) {
-        return;
-      }
+    verificarSessao();
+  }
 
+  Future<void> verificarSessao() async {
+    await Future.delayed(
+      const Duration(seconds: 3),
+    );
+
+    if (!mounted) return;
+
+    final token = await SessionService.getToken();
+    final id = await SessionService.getId();
+    final nome = await SessionService.getNome();
+    final tipo = await SessionService.getTipo();
+
+    if (!mounted) return;
+
+    if (token != null && id != null && nome != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => tipo == "psicologo"
+              ? const HomePsicologo()
+              : Home(nome: nome),
+        ),
+      );
+    } else {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const Login(),
         ),
       );
-    });
+    }
   }
 
   @override
@@ -118,7 +145,7 @@ class _SplashState extends State<Splash>
                 ),
               ),
               const SizedBox(height: 45),
-              SizedBox(
+              const SizedBox(
                 width: 30,
                 height: 30,
                 child: CircularProgressIndicator(

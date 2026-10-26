@@ -2,6 +2,7 @@ const prisma = require("../data/prisma");
 const { hashPassword } = require("../utils/password");
 const { criptografar, descriptografar } = require("../utils/crypto");
 
+
 const safe = p => ({
     ...p, nome: descriptografar(p.nome), email: descriptografar(p.email)
 });
@@ -78,7 +79,17 @@ const buscar = async (id, usuario) => {
         throw new Error("Psicólogo não encontrado");
     }
 
-    return p;
+    return {
+        ...p,
+        nome: descriptografar(p.nome),
+        email: descriptografar(p.email),
+
+        pacientes: p.pacientes.map((paciente) => ({
+            ...paciente,
+            nome: descriptografar(paciente.nome),
+            email: descriptografar(paciente.email)
+        }))
+    };
 };
 
 const atualizar = async (id, dados, usuario) => {
@@ -110,7 +121,7 @@ const excluir = async (id, usuario) => {
 };
 
 const listarPacientes = async (usuario) => {
-    const p = await prisma.paciente.findMany({
+    const pacientes = await prisma.paciente.findMany({
         where: { psicologoId: usuario.id },
         select: {
             id: true,
@@ -118,11 +129,15 @@ const listarPacientes = async (usuario) => {
             email: true,
             pontos: true
         }
-    }
-    );
-    return p.map(safe);
-}
-    ;
+    });
+
+    return pacientes.map((paciente) => ({
+        ...paciente,
+        nome: descriptografar(paciente.nome),
+        email: descriptografar(paciente.email)
+    }));
+};
+
 module.exports = {
     cadastrar,
     listar,
