@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaMente | Meu Perfil</title>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/CSS/perfil.css">
+    <link rel="stylesheet" href="/CSS/app.css">
+=======
     <link rel="stylesheet" href="../CSS/perfil.css">
     <script src="../JS/auth.js"></script>
     <script>VivaAuth.exigirLogin();</script>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 </head>
 
 <body>
@@ -20,10 +25,17 @@
                     <li><a href="index.html#sobre">Sobre Nós</a></li>
                     <li><a href="index.html#depoimentos">Depoimentos</a></li>
                     <li><a href="index.html#contato">Contato</a></li>
-                    <li><a href="perfil.html"> Meu Perfil</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
                     <li><a href="tarefas.html">Tarefas</a></li>
+<<<<<<< HEAD
+                    <li><a href="recompensas.html">Recompensas</a></li>
+                    <li><a href="consultas.html">Consultas</a></li>
+                    <li><a href="chat.html">Toquinho</a></li>
+                    <li><a href="login.html" id="nav-auth">Entrar</a></li>
+=======
                     <li><a href="chat.html">Toquinho</a></li>
                     <li id="navAuth"></li>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
                 </ul>
             </nav>
         </div>
@@ -39,10 +51,11 @@
                 </div>
                 <div class="perfil-card">
                     <div class="perfil-lateral">
-                        <div class="avatar"><span>JS</span></div>
-                        <h2>João Silva</h2>
-                        <p>joao@email.com</p>
-                        <button class="btn-foto">Alterar foto</button>
+                        <div class="avatar"><span id="avatar-iniciais">--</span></div>
+                        <h2 id="perfil-nome-lateral">Carregando...</h2>
+                        <p id="perfil-email-lateral"></p>
+                        <p class="pontos-chip" data-somente="paciente">⭐ <span class="pontos-valor">0</span> pontos</p>
+                        <button type="button" class="btn-foto" id="btn-sair">Sair da conta</button>
                     </div>
                     <div class="perfil-formulario">
                         <div class="form-header">
@@ -53,27 +66,28 @@
                             <div class="form-grid">
                                 <div class="campo">
                                     <label for="nome">Nome completo</label>
-                                    <input type="text" id="nome" name="nome" value="João Silva"
-                                        placeholder="Digite seu nome" required>
+                                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="campo">
                                     <label for="email">E-mail</label>
-                                    <input type="email" id="email" name="email" value="joao@email.com"
-                                        placeholder="Digite seu e-mail" required>
+                                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail"
+                                        required>
                                 </div>
                                 <div class="campo">
-                                    <label for="telefone">Telefone</label>
-                                    <input type="tel" id="telefone" name="telefone" value="(92) 99999-9999"
-                                        placeholder="(00)00000-0000">
+                                    <label for="tipoConta">Tipo de conta</label>
+                                    <input type="text" id="tipoConta" name="tipoConta" readonly>
                                 </div>
-                                <div class="campo">
-                                    <label for="dataNascimento">Data de nascimento</label>
-                                    <input type="date" id="dataNascimento" name="dataNascimento" value="2000-01-15">
+                                <div class="campo" data-somente="paciente">
+                                    <label for="pontos">Pontos acumulados</label>
+                                    <input type="text" id="pontos" name="pontos" readonly>
                                 </div>
-                                <div class="campo campo-completo">
-                                    <label for="cidade">Cidade</label>
-                                    <input type="text" id="cidade" name="cidade" value="Manaus"
-                                        placeholder="Digite sua cidade">
+                                <div class="campo campo-completo" data-somente="paciente">
+                                    <label for="psicologo">Meu psicólogo(a)</label>
+                                    <input type="text" id="psicologo" name="psicologo" readonly>
+                                </div>
+                                <div class="campo" data-somente="psicologo">
+                                    <label for="totalPacientes">Pacientes vinculados</label>
+                                    <input type="text" id="totalPacientes" name="totalPacientes" readonly>
                                 </div>
                             </div>
                             <div class="acoes">
@@ -91,7 +105,18 @@
                             <p>Mantenha seus dados protegidos.</p>
                         </div>
                     </div>
-                    <button class="btn-senha">Alterar senha</button>
+                    <button class="btn-senha" id="btn-senha">Alterar senha</button>
+                </div>
+
+                <div class="pacientes-bloco" data-somente="psicologo" hidden>
+                    <div class="pacientes-topo">
+                        <div>
+                            <h3>Meus pacientes</h3>
+                            <p>Cadastre pacientes para atribuir tarefas e agendar consultas.</p>
+                        </div>
+                        <button type="button" class="btn-salvar btn-novo-paciente" id="btn-novo-paciente">+ Novo paciente</button>
+                    </div>
+                    <div class="lista-pacientes" id="lista-pacientes"></div>
                 </div>
             </div>
         </section>
@@ -107,7 +132,12 @@
         </div>
     </footer>
 
+<<<<<<< HEAD
+    <script src="/JS/app.js"></script>
+    <script src="/JS/perfil.js"></script>
+=======
     <script src="../JS/perfil.js"></script>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 </body>
 
 </html>

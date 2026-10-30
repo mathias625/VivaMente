@@ -1,3 +1,57 @@
+<<<<<<< HEAD
+nav a.active {
+    color: var(--secondary);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+.login-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 150px 0 80px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 45px 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.login-card h1 {
+    margin: 8px 0 10px;
+    font-size: 38px;
+    color: var(--primary-dark);
+}
+
+.login-card > p {
+    margin-bottom: 25px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.login-abas {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 40px;
+    background: var(--background);
+}
+
+.aba {
+    padding: 11px 10px;
+    border: none;
+    border-radius: 30px;
+=======
 :root {
     --primary: #00b4d8;
     --primary-dark: #023e8a;
@@ -167,12 +221,87 @@ nav a:hover {
     padding: 11px 14px;
     border: none;
     border-radius: 50px;
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
     background: transparent;
     color: var(--primary-dark);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+<<<<<<< HEAD
+    transition: 0.3s;
+}
+
+.aba.ativa {
+    background: var(--primary);
+    color: #fff;
+}
+
+.login-tipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.tipo-opcao {
+    cursor: pointer;
+}
+
+.tipo-opcao input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tipo-opcao span {
+    display: block;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fbfeff;
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.tipo-opcao input:checked + span {
+    border-color: var(--primary);
+    background: #e6faff;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+}
+
+.tipo-opcao input:focus-visible + span {
+    border-color: var(--primary);
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.campo label {
+    color: var(--primary-dark);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: #fbfeff;
+=======
     transition: 0.25s;
 }
 .tipo-btn:hover:not(.ativo) {
@@ -206,11 +335,32 @@ form {
     border-radius: 12px;
     outline: none;
     background: var(--surface);
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
     color: var(--text);
     font-family: inherit;
     font-size: 15px;
     transition: 0.3s;
 }
+<<<<<<< HEAD
+
+.campo input:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.10);
+}
+
+.login-erro {
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: #fdecea;
+    color: #c0392b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-login {
+    margin-top: 6px;
+=======
 .campo input.campo-input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
@@ -299,6 +449,7 @@ form {
 }
 
 .btn-entrar {
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
     padding: 16px 25px;
     border: none;
     border-radius: 50px;
@@ -310,6 +461,42 @@ form {
     cursor: pointer;
     transition: 0.3s;
 }
+<<<<<<< HEAD
+
+.btn-login:hover:not(:disabled) {
+    background: var(--hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.25);
+}
+
+.btn-login:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.login-ajuda {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .login-section {
+        padding-top: 190px;
+    }
+
+    .login-card {
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-abas {
+        grid-template-columns: 1fr;
+    }
+=======
 .btn-entrar:hover {
     background: var(--hover);
     transform: translateY(-2px);
@@ -420,4 +607,5 @@ footer p {
     * {
         transition: none !important;
     }
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente | Consultas</title>
+    <link rel="stylesheet" href="/CSS/tarefas.css">
+    <link rel="stylesheet" href="/CSS/app.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">VivaMente</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
+                    <li><a href="tarefas.html">Tarefas</a></li>
+                    <li><a href="recompensas.html">Recompensas</a></li>
+                    <li><a href="consultas.html" class="active">Consultas</a></li>
+                    <li><a href="login.html" id="nav-auth">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="tarefas-section">
+            <div class="container">
+
+                <div class="titulo">
+                    <span class="section-label">Acompanhamento</span>
+                    <h1>Consultas</h1>
+                    <p id="consultas-descricao">Acompanhe suas sessões agendadas.</p>
+                </div>
+
+                <div class="tarefas-header">
+                    <div>
+                        <span class="section-label">Agenda</span>
+                        <h2>Próximas sessões</h2>
+                    </div>
+                    <button class="btn-adicionar" id="btn-nova-consulta" data-somente="psicologo" hidden>+ Nova consulta</button>
+                </div>
+
+                <div class="tarefas-grid" id="lista-consultas"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>VivaMente</h2>
+            <p>Cuidando da sua mente para você viver melhor.</p>
+            <p class="copy">© 2026 Projeto VivaMente | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/JS/app.js"></script>
+    <script src="/JS/consultas.js"></script>
+</body>
+
+</html>

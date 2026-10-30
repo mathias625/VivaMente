@@ -1,0 +1,397 @@
+/* ===== VivaMente | Componentes da integração (mesma paleta das demais folhas) ===== */
+
+[hidden] {
+    display: none !important;
+}
+
+/* Menu: com mais itens, reduz um pouco o espaçamento */
+nav ul {
+    gap: 22px;
+}
+
+nav a {
+    font-size: 15px;
+}
+
+/* Avisos */
+#toast-caixa {
+    position: fixed;
+    top: 105px;
+    right: 20px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: calc(100% - 40px);
+}
+
+.toast {
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: var(--primary-dark);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    animation: toast-entra 0.3s ease;
+    transition: opacity 0.4s;
+}
+
+.toast-sucesso {
+    background: var(--success, #20a36a);
+}
+
+.toast-erro {
+    background: #c0392b;
+}
+
+.toast-sai {
+    opacity: 0;
+}
+
+@keyframes toast-entra {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+}
+
+/* Modal */
+.modal-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 4, 94, 0.45);
+}
+
+.modal {
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(2, 62, 138, 0.25);
+}
+
+.modal h3 {
+    margin-bottom: 22px;
+    color: var(--primary-dark);
+    font-size: 24px;
+}
+
+.modal-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.modal-campo label {
+    color: var(--primary-dark);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.modal-campo input,
+.modal-campo select,
+.modal-campo textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: #fbfeff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.modal-campo input:focus,
+.modal-campo select:focus,
+.modal-campo textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.10);
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.modal-acoes button {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-cancelar {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--muted);
+}
+
+.modal-confirmar {
+    border: none;
+    background: var(--primary);
+    color: #fff;
+}
+
+.modal-confirmar:hover {
+    background: var(--hover);
+}
+
+/* Componentes reutilizados nas páginas de tarefas / recompensas / consultas */
+.tarefa-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.tarefa.concluida .btn-concluir {
+    cursor: pointer;
+}
+
+.btn-concluir:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-excluir {
+    padding: 9px 17px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: transparent;
+    color: #c0392b;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.btn-excluir:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+}
+
+.btn-secundario {
+    padding: 14px 25px;
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--primary-dark);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-secundario:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.tarefas-header-acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filtro-paciente {
+    padding: 13px 18px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: var(--surface);
+    color: var(--primary-dark);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: var(--background);
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tarefa.concluida .status-tag {
+    background: #d3f3e3;
+    color: var(--success, #20a36a);
+}
+
+.tarefa.passada {
+    opacity: 0.7;
+}
+
+.vazio {
+    grid-column: 1 / -1;
+    padding: 50px 20px;
+    border: 2px dashed var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+}
+
+.saldo-card .porcentagem {
+    white-space: nowrap;
+}
+
+/* Perfil: bloco de pacientes do psicólogo */
+.pacientes-bloco {
+    margin-top: 25px;
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.pacientes-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.pacientes-topo h3 {
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+}
+
+.pacientes-topo p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.lista-pacientes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.paciente-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fbfeff;
+}
+
+.paciente-item .mini-avatar {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+}
+
+.paciente-item div:nth-child(2) {
+    flex: 1;
+}
+
+.paciente-item strong {
+    display: block;
+    color: var(--primary-dark);
+}
+
+.paciente-item span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.paciente-item .pontos-tag {
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.campo input[readonly] {
+    background: #f1f9fc;
+    color: var(--muted);
+    cursor: default;
+}
+
+.perfil-lateral .pontos-chip {
+    margin: 0 0 18px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    nav ul {
+        gap: 10px 16px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .pacientes-topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tarefa-acoes {
+        width: 100%;
+    }
+
+    #toast-caixa {
+        top: 190px;
+    }
+}
+
+.btn-novo-paciente {
+    padding: 13px 24px;
+    border: none;
+    border-radius: 30px;
+    background: var(--primary);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-novo-paciente:hover {
+    background: var(--hover);
+    transform: translateY(-2px);
+}

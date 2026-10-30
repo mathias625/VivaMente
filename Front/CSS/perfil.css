@@ -16,9 +16,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana,sans-serif;
     scroll-behavior: smooth;
 }
+
 body {
-    min-height: 100vh;
-    background: #f4fbfd;
+    background: var(--background);
     color: var(--text);
 }
 a {

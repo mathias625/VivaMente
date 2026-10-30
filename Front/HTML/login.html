@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VivaMente | Entrar</title>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/login.css">
+    <link rel="stylesheet" href="/CSS/app.css">
+=======
     <link rel="stylesheet" href="../CSS/login.css">
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 </head>
 
 <body>
@@ -16,13 +22,65 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#sobre">Sobre Nós</a></li>
+<<<<<<< HEAD
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
                     <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="login.html" id="nav-auth" class="active">Entrar</a></li>
+=======
+                    <li><a href="index.html#contato">Contato</a></li>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
+<<<<<<< HEAD
+        <section class="login-section">
+            <div class="container">
+                <div class="login-card">
+                    <span class="section-label">Área do usuário</span>
+                    <h1 id="login-titulo">Entrar</h1>
+                    <p id="login-subtitulo">Acesse sua conta para acompanhar suas tarefas e conquistas.</p>
+
+                    <div class="login-abas">
+                        <button type="button" class="aba ativa" id="aba-entrar">Entrar</button>
+                        <button type="button" class="aba" id="aba-cadastro">Sou psicólogo(a) — criar conta</button>
+                    </div>
+
+                    <div class="login-tipo" id="grupo-tipo">
+                        <label class="tipo-opcao">
+                            <input type="radio" name="tipo" value="paciente" checked>
+                            <span>Paciente</span>
+                        </label>
+                        <label class="tipo-opcao">
+                            <input type="radio" name="tipo" value="psicologo">
+                            <span>Psicólogo(a)</span>
+                        </label>
+                    </div>
+
+                    <form id="loginForm" novalidate>
+                        <div class="campo" id="campo-nome" hidden>
+                            <label for="login-nome">Nome completo</label>
+                            <input type="text" id="login-nome" placeholder="Digite seu nome">
+                        </div>
+                        <div class="campo">
+                            <label for="login-email">E-mail</label>
+                            <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="campo">
+                            <label for="login-senha">Senha</label>
+                            <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+                        </div>
+                        <p class="login-erro" id="login-erro" hidden></p>
+                        <button type="submit" class="btn-login" id="btn-login">Entrar</button>
+                    </form>
+
+                    <p class="login-ajuda" id="login-ajuda">
+                        Pacientes são cadastrados pelo(a) psicólogo(a) responsável. Se ainda não tem acesso, peça o
+                        seu cadastro ao seu profissional.
+                    </p>
+=======
         <section class="login">
             <div class="login-card">
                 <div class="login-lateral">
@@ -93,6 +151,7 @@
 
                     <p class="cadastro-link">Ainda não tem acesso? O cadastro é feito pelo seu psicólogo(a).
                         <a href="index.html?assunto=acesso#contato">Fale com a gente</a></p>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
                 </div>
             </div>
         </section>
@@ -106,8 +165,13 @@
         </div>
     </footer>
 
+<<<<<<< HEAD
+    <script src="/JS/app.js"></script>
+    <script src="/JS/login.js"></script>
+=======
     <script src="../JS/auth.js"></script>
     <script src="../JS/login.js"></script>
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 </body>
 
 </html>

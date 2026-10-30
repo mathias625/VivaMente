@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+const API = window.VM_API_URL || "http://localhost:3000";
+
+const token = localStorage.getItem("vm_token");
+const usuarioSalvo = localStorage.getItem("vm_usuario");
+=======
 const API = "http://localhost:3000";
 
 const token = localStorage.getItem("token");
 const usuarioSalvo = localStorage.getItem("usuario");
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 
 let usuario = null;
 let conversaAtual = null;
@@ -42,8 +49,13 @@ function verificarAuth() {
     }
 
     if (!usuario || usuario.tipo !== "paciente") {
+<<<<<<< HEAD
+        localStorage.removeItem("vm_token");
+        localStorage.removeItem("vm_usuario");
+=======
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
         window.location.href = "login.html";
         return false;
     }
@@ -67,8 +79,13 @@ async function requisicao(url, opcoes = {}) {
     const dados = await resposta.json().catch(() => ({}));
 
     if (resposta.status === 401) {
+<<<<<<< HEAD
+        localStorage.removeItem("vm_token");
+        localStorage.removeItem("vm_usuario");
+=======
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
         window.location.href = "login.html";
         throw new Error("Sessão expirada.");
     }
@@ -383,8 +400,13 @@ novaConversa.addEventListener("click", criarNovaConversa);
 atualizarConversas.addEventListener("click", carregarConversas);
 
 sair.addEventListener("click", () => {
+<<<<<<< HEAD
+    localStorage.removeItem("vm_token");
+    localStorage.removeItem("vm_usuario");
+=======
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
+>>>>>>> 6465356a40555210988254c58ff46100d4d76ca1
 
     window.location.href = "login.html";
 });

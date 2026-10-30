@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaMente | Recompensas</title>
+    <link rel="stylesheet" href="/CSS/tarefas.css">
+    <link rel="stylesheet" href="/CSS/app.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">VivaMente</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre Nós</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="perfil.html">Meu Perfil</a></li>
+                    <li><a href="tarefas.html">Tarefas</a></li>
+                    <li><a href="recompensas.html" class="active">Recompensas</a></li>
+                    <li><a href="consultas.html">Consultas</a></li>
+                    <li><a href="chat.html">Toquinho</a></li>
+                    <li><a href="login.html" id="nav-auth">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="tarefas-section">
+            <div class="container">
+
+                <div class="titulo">
+                    <span class="section-label">Loja de recompensas</span>
+                    <h1>Recompensas</h1>
+                    <p id="recompensas-descricao">Troque os pontos conquistados por recompensas que fazem bem a você.</p>
+                </div>
+
+                <div class="progresso-card saldo-card" data-somente="paciente" hidden>
+                    <div class="progresso-info">
+                        <div>
+                            <span>Seu saldo</span>
+                            <strong>Pontos disponíveis para resgate</strong>
+                        </div>
+                        <div class="porcentagem">⭐ <span class="pontos-valor">0</span></div>
+                    </div>
+                </div>
+
+                <div class="tarefas-header">
+                    <div>
+                        <span class="section-label">Catálogo</span>
+                        <h2>Escolha sua recompensa</h2>
+                    </div>
+                    <button class="btn-adicionar" id="btn-nova-recompensa" data-somente="psicologo" hidden>+ Nova recompensa</button>
+                </div>
+
+                <div class="tarefas-grid" id="lista-recompensas"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2>VivaMente</h2>
+            <p>Cuidando da sua mente para você viver melhor.</p>
+            <p class="copy">© 2026 Projeto VivaMente | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="/JS/app.js"></script>
+    <script src="/JS/recompensas.js"></script>
+</body>
+
+</html>
