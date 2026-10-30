@@ -11,8 +11,6 @@
 - Loja de recompensas com compra usando pontos.
 - Ao concluir uma tarefa, os pontos da tarefa são creditados ao paciente; ao desfazê-la, os pontos são estornados.
 
-## Perfis
-
 ### Paciente
 
 - Visualiza somente suas tarefas.

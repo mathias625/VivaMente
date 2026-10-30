@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const c = require("../controllers/paciente.controller");
+const checkin = require("../controllers/checkin.controller");
 const auth = require("../middleware/auth.middleware");
 const permitir = require("../middleware/permissao.middleware");
 
@@ -12,5 +13,7 @@ router.get("/buscar/:id", auth, permitir("psicologo", "paciente"), c.buscar);
 router.put("/atualizar/:id", auth, permitir("psicologo", "paciente"), c.atualizar);
 router.delete("/excluir/:id", auth, permitir("psicologo"), c.excluir);
 router.get("/meu-psicologo", auth, permitir("paciente"), c.meuPsicologo);
+router.get("/checkin/status", auth, permitir("paciente"), checkin.consultar);
+router.post("/checkin", auth, permitir("paciente"), checkin.registrar);
 
 module.exports = router;

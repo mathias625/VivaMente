@@ -29,6 +29,7 @@ model Paciente {
     consultas Consulta[]
     tarefas   Tarefa[]
     conversas Conversa[]
+    checkins   Checkin[]
 }
 
 model Consulta {
@@ -79,11 +80,15 @@ model Mensagem {
 }
 
 
-model Contato {
-    id       Int      @id @default(autoincrement())
-    nome     String   @db.Text
-    email    String
-    assunto  String
-    mensagem String   @db.Text
-    criadaEm DateTime @default(now())
+model Checkin {
+    id         Int      @id @default(autoincrement())
+    // Instante exato em que o paciente concluiu o check-in.
+    data       DateTime @default(now())
+    // Dia do check-in no fuso de São Paulo, usado para impedir mais de um por dia.
+    dia        DateTime @db.Date
+    pacienteId Int
+
+    paciente Paciente @relation(fields: [pacienteId], references: [id], onDelete: Cascade)
+
+    @@unique([pacienteId, dia])
 }

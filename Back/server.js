@@ -15,7 +15,6 @@ app.use("/recompensas", require("./src/routes/recompensas.routes"));
 app.use("/consulta", require("./src/routes/consulta.routes"));
 app.use("/psicologo", require("./src/routes/psicologo.routes"));
 app.use("/paciente", require("./src/routes/paciente.routes"));
-app.use("/contato", require("./src/routes/contato.routes"));
 
 app.use((err, req, res, next) => {
     console.error(err);
