@@ -32,12 +32,12 @@ class _HomePsicologoState extends State<HomePsicologo> {
         ApiService.listarConsultas(token),
       ]);
       if (!mounted) return;
-      setState(() {
-        pacientes = resultados[0] as List<dynamic>;
-        consultas = resultados[1] as List<dynamic>;
-        carregando = false;
-        erro = null;
-      });
+    setState(() {
+  pacientes = resultados[0];
+  consultas = resultados[1];
+  carregando = false;
+  erro = null;
+});
     } catch (e) {
       if (!mounted) return;
       setState(() {
